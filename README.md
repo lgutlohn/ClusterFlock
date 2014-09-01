@@ -4,7 +4,7 @@ Software Engineering readme.md
 	    Gatorlink : lgutlohn
 	
 	2.	Name : Eric Smith
-	    Gatorlink :
+	    Gatorlink : smith1302
 	
 	3.	Name : Jesse Everett
 	    Gatorlink : jesseceverett
