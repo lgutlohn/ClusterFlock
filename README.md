@@ -6,7 +6,7 @@ Software Engineering readme.md
 	2.	Name : Eric Smith
 	    Gatorlink :
 	
-	3.	Jesse Everett
+	3.	Name : Jesse Everett
 	    Gatorlink : jesseceverett
 	
 	4.	Name : Kathleen Lew
