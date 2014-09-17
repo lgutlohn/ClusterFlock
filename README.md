@@ -12,6 +12,10 @@ Software Engineering readme.md
 	4.	Name : Kathleen Lew
 	    Gatorlink : katlew3
 
+========================================================================
+			Project Description
+========================================================================
+
 Client: Christan Grant
 
 Project: Data Clustering Service
@@ -35,3 +39,34 @@ This project is highly concurrent, using the DB to
 1) To manage the (complex and transient) state
 2) Query the specific portions of the data set
 3) Support ad hoc additions from multiple concurrent users
+
+
+========================================================================
+			User Stories
+========================================================================
+
+Upon Start
+	- User can login to clustering section
+		- May be multiple sections
+		- Create new
+	- Words (with pictures) come in
+	- Directions?
+		- Before or after
+	- No automatic pictures (suggest pictures?)
+
+Multiple User Simulatneously?
+	- Could use Socket.io
+
+All users equal
+	- One admin
+		- Ban users
+		- Pause/Stop sessions
+		- Add/Remove admins
+		- Seal Cluster (cannot be destroyed)
+	- Add to Cluster
+	- Take away
+	- Create New
+	- Manipulate Pictures
+		- Find/Request Pictures
+
+Log actions?
