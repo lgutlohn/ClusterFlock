@@ -53,7 +53,7 @@ User Stories
 		- Before or after
 	- No automatic pictures (suggest pictures?)
 
-Multiple User Simulatneously?
+**Multiple User Simulatneously?**
 
 	- Could use Socket.io
 
