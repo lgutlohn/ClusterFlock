@@ -12,9 +12,8 @@ Software Engineering readme.md
 	4.	Name : Kathleen Lew
 	    Gatorlink : katlew3
 
-========================================================================
-			Project Description
-========================================================================
+Project Description
+==============
 
 Client: Christan Grant
 
@@ -41,11 +40,11 @@ This project is highly concurrent, using the DB to
 3) Support ad hoc additions from multiple concurrent users
 
 
-========================================================================
-			User Stories
-========================================================================
+User Stories
+==============
 
-Upon Start
+**Upon Start**
+
 	- User can login to clustering section
 		- May be multiple sections
 		- Create new
@@ -55,9 +54,11 @@ Upon Start
 	- No automatic pictures (suggest pictures?)
 
 Multiple User Simulatneously?
+
 	- Could use Socket.io
 
-All users equal
+**All users equal**
+
 	- One admin
 		- Ban users
 		- Pause/Stop sessions
@@ -69,4 +70,4 @@ All users equal
 	- Manipulate Pictures
 		- Find/Request Pictures
 
-Log actions?
+**Log actions?**
