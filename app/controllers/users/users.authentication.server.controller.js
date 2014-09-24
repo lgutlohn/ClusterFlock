@@ -7,7 +7,8 @@ var _ = require('lodash'),
 	errorHandler = require('../errors'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
-	User = mongoose.model('User');
+	User = mongoose.model('User'),
+	Twit = require('twit');
 
 /**
  * Signup
@@ -96,7 +97,6 @@ exports.oauthCallback = function(strategy) {
 		})(req, res, next);
 	};
 };
-
 /**
  * Helper function to save or update a OAuth user profile
  */

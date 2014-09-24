@@ -6,7 +6,8 @@
 var mongoose = require('mongoose'),
 	errorHandler = require('./errors'),
 	Article = mongoose.model('Article'),
-	_ = require('lodash');
+	_ = require('lodash'),
+	Twit = require('twit');
 
 /**
  * Create a article
