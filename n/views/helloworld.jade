@@ -1,0 +1,13 @@
+html
+  head
+    link(rel='stylesheet', href='/stylesheets/test.css')
+    script(src='/javascript/test.js')
+  body
+    p Drag the W3Schools image into the rectangle:
+    #div1(ondrop='drop(event)', ondragover='allowDrop(event)') ra1
+    br
+    #div2(ondrop='drop(event)', ondragover='allowDrop(event)') ra2
+    br
+    img#drag1(src='http://upload.wikimedia.org/wikipedia/commons/f/f5/Sun_god_Ra2.svg', draggable='true', ondragstart='drag(event)', width='336', height='69')
+    img#drag2(src='http://th00.deviantart.net/fs71/PRE/f/2013/052/8/0/dat_rarara_by_addiiict-d5vprhj.png', draggable='true', ondragstart='drag(event)', width='336', height='69')
+
