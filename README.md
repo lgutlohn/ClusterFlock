@@ -42,6 +42,28 @@ This project is highly concurrent, using the DB to
 
 User Stories
 ==============
+As a user
+	I want to 
+		create a session
+		log into a session
+		log out of a session
+		create a user account
+		see twitter tweets come in
+		control whose tweets come in
+		see tool tips on what components of the UI are for
+		add to a cluster
+		take away from a cluster
+		create a cluster
+		manipulate pictures
+			-add pictures to tweets that the application autofinds based on keywords
+As an admin
+	I want to 
+		ban users
+		pause/stop sessions
+		add/remove admins
+		seal cluster
+			-preserve it
+		see actions of users
 
 **Upon Start**
 
