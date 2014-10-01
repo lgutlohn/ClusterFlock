@@ -58,4 +58,17 @@ router.post('/adduser', function(req, res) {
     });
 });
 
+/* Kat Inserts */
+
+/* Advanced Drag Drop */
+router.get('/advDragDrop', function(req, res) {
+    res.render('advDragDrop', { title: 'Advanced Drag Drop Test' })
+});
+
+/* Drop Zone */
+router.get('/dropZone', function(req, res) {
+    res.render('dropZone', { title: 'dropZone' })
+});
+
+
 module.exports = router;

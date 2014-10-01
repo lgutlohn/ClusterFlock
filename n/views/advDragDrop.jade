@@ -1,0 +1,38 @@
+html
+  head
+    link(rel='stylesheet', href='/stylesheets/advDragDrop.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js')
+    script(src='/javascript/advDragDrop.js')
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js')
+    script(src='http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js')
+    
+
+
+  body(ng-controller='oneCtrl')
+    #products
+  h1.ui-widget-header Products
+  #catalog
+    h2
+      a(href='#') T-Shirts
+    div
+      ul
+        li(jqyoui-draggable='{index: {{$index}}, animate: true, placeholder: "keep"}', ng-model='list1', data-jqyoui-options='{revert: "invalid", helper: "clone"}', data-drag='true', ng-show='item.title', ng-repeat='item in list1') {{item.title}}
+    h2
+      a(href='#') Bags
+    div
+      ul
+        li(jqyoui-draggable='{index: {{$index}}, placeholder: "keep"}', ng-model='list2', data-jqyoui-options='{revert: "invalid", helper: "clone"}', data-drag='true', ng-show='item.title', ng-repeat='item in list2') {{item.title}}
+    h2
+      a(href='#') Gadgets
+    div
+      ul
+        li(jqyoui-draggable='{index: {{$index}}, placeholder: "keep"}', ng-model='list3', data-jqyoui-options='{revert: "invalid", helper: "clone"}', data-drag='true', ng-show='item.title', ng-repeat='item in list3') {{item.title}}
+#cart
+  h1.ui-widget-header Shopping Cart
+  .ui-widget-content
+    ol(jqyoui-droppable='{multiple:true}', ng-model='list4', data-drop='true')
+      li(jqyoui-draggable='{index: {{$index}},animate:true}', ng-model='list4', data-jqyoui-options='{revert: "invalid", helper: "clone"}', data-drag='true', ng-show='item.title', ng-repeat='item in list4 track by $index') {{item.title}}
+      li.placeholder(ng-hide='hideMe()') Add your items here
+
+
+  
