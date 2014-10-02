@@ -1,3 +1,8 @@
 {
+<<<<<<< HEAD
 	"directory": "public/lib"
 }
+=======
+	"directory": "public/libs"
+}
+>>>>>>> Init new boiler plate with twitter feature
