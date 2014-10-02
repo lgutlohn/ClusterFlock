@@ -64,8 +64,13 @@ router.get('/helloworld', function(req, res) {
 });
 
 /* GET Hello World page. */
-router.get('/home', function(req, res) {
-    res.render('home', { title: 'Welcome' })
+router.get('/dragdrop', function(req, res) {
+    res.render('dragdrop', { title: 'Drag Drop' })
+});
+
+/* GET Hello World page. */
+router.get('/dragdrop1', function(req, res) {
+    res.render('dragdrop1', { title: 'Drag Drop 1' })
 });
 
 module.exports = router;
