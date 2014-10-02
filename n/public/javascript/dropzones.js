@@ -11,25 +11,13 @@
             position.x = parseInt(event.target.dataset.x, 10) || 0;
             position.y = parseInt(event.target.dataset.y, 10) || 0;
         })
-        .snap({
-            mode : 'path',
-            paths: [
-                {            // snap to points on these x and y axes
-                    x: 100,
-                    y: 100,
-                    range: 2000
-                },
-                // give this function the x and y page coords and snap to the object returned
-                function (x,y) {
-                    console.log( " LAUREN" + ('#drop1').width);
-                    console.log(" LAUREN 2 " +('#drop2').height);
-                    return {
-                        x: 200,
-                        y: 200,
-                        range: 2000
-                    };
-                }]
+     .snap({
+        mode        : 'grid',                // event coords should snap to the corners of a grid
+        range       : Infinity,              // the effective distance of snap ponts
+        grid        : { x: 10, y: 10 },    // the x and y spacing of the grid points
+        gridOffset  : { x:   0, y:   0 },    // the offset of the grid points
         })
+
         .inertia(true)
         .on('dragmove', function (event) {
             position.x += event.dx;
@@ -46,7 +34,7 @@
     // dropzone #1 accepts draggable #1
     setupDropzone('#drop1', '#drag1');
     // dropzone #2 accepts draggable #1 and #2
-    setupDropzone('#drop2', '#drag1, #drag2');
+    //setupDropzone('#drop2', '#drag1, #drag2');
     // every dropzone accepts draggable #3
     setupDropzone('.js-drop', '#drag3');
 
@@ -65,6 +53,7 @@
                 },
                 ondropdeactivate: function (event) {
                     event.relatedTarget.classList.remove('-drop-possible');
+                    $(accept).fadeOut();
                 }
             })
             .on('dropactivate', function (event) {
@@ -85,15 +74,16 @@
             .on('dragleave', function (event) {
                 event.target.classList.remove('-drop-over');
                 event.relatedTarget.textContent = 'Drag me…';
+                console.log("Lauren " + el);
+                
             })
             .on('drop', function (event) {
                 event.target.classList.remove('-drop-over');
                 event.relatedTarget.textContent = 'Dropped';
+
             })
            
     }
-
-
 
 
 }(window.interact));
