@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<base href="/">
+
+	<title>Starter Node and Angular</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
+
+	<!-- JS -->
+	<script src="libs/angular/angular.min.js"></script>
+	<script src="libs/angular-route/angular-route.min.js"></script>
+	<script src="/js/jQuery.js"></script>
+	<script src="/js/interact.js"></script>
+	<script src="/js/dropzones.js"></script>
+	<!-- ANGULAR CUSTOM -->
+	<script src="js/controllers/MainCtrl.js"></script>
+	<script src="js/services/TweetService.js"></script>
+	<script src="js/appRoutes.js"></script>
+	<script src="js/app.js"></script>
+
+</head>
+<body ng-app="sampleApp" ng-controller="MainController">
+<div class="container">
+	
+	<!-- HEADER -->
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Data Cluster</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Settings</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+	<div class="row">
+
+		<!-- SIDE BAR OF TWEETS -->
+	    <div class="col-sm-3 col-md-2 sidebar">
+	    	<div ng-repeat="tweet in tweets" class="well text-center draggable js-drag">
+				{{tweet.username}} : {{tweet.text}}
+			</div>
+	    </div>
+
+	    <!-- ENTIRE LEFT SIDE OF CLUSTERS -->
+	    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 dropzone-wrapper">
+
+	    		<!-- INDIVIDUAL DROP ZONES -->
+	    		<div id="drop1" class="dropzone js-drop"> Dropzone </div>
+	    		<div id="drop2" class="dropzone js-drop"> Dropzone </div>
+	    		<div id="drop3" class="dropzone js-drop"> Dropzone </div>
+	    	
+	    </div>
+  </div>
+
+</div>
+</body>
+</html>
