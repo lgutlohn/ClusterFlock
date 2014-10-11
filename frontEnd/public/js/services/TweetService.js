@@ -3,10 +3,7 @@ angular.module('TweetService', []).factory('TweetService', ['$http', function($h
 	return {
 		
 		get : function(name) {
-			console.log(name);
-			return $http.get('/api/tweets', { params: {
-	            name: name
-	        }});
+			return $http.get('/api/tweets?name='+name);
 		},
 	}	
 
