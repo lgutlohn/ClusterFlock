@@ -5,4 +5,8 @@ angular.module('MainCtrl', []).controller('MainController', ['$scope', 'TweetSer
 	    });	
 	}
 
+	$scope.sayHello = function() {
+		return "Hello";
+	}
+
 }]);
