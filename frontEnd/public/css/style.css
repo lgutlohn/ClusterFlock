@@ -7,6 +7,10 @@
 	border-left: 1px solid #eee;
 }
 
+.tweet-container {
+	width: 210px;
+}
+
 #left-container {
 	background-color: #aaa;
 	padding: 10px;
