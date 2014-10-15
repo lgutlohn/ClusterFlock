@@ -13,7 +13,8 @@ module.exports = function(app) {
 		  access_token:         '1428205782-BNPCmdDQrxWehCxOtqVCO6WjUEGLI44nulgAsqO',
 		  access_token_secret:  'DwY4XtSlRRW42e7yGKxm8frLyHbrZUYHQTFioZX1kGt3b',
 		});
-		T.get('statuses/user_timeline', { screen_name: 'ericsmith1302', count: 100, exclude_replies: true }, function(err, data, response) {
+		console.log(req.query);
+		T.get('statuses/user_timeline', { screen_name: req.query.name, count: 100, exclude_replies: true }, function(err, data, response) {
 			var newFormat = [];
 			for (var i = 0; i < data.length; i++) {
 				var tweet = data[i];
