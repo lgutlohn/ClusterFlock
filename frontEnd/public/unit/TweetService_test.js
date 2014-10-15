@@ -20,6 +20,13 @@ describe('TweetService', function(){
     httpBackend.verifyNoOutstandingExpectation();
     httpBackend.verifyNoOutstandingRequest();
   });
+  
+  it('Should pass 1=1.', function(){
+    var one = 1;
+    var two = 1;
+    expect(one).toEqual(two);
+
+  });
 
   it ('Should send the username and return a response.', function() {
     // set up some data for the http call to return and test later.
@@ -38,6 +45,31 @@ describe('TweetService', function(){
     httpBackend.flush();
 
     expect(result.data).toEqual(returnData);
+
+  });
+  
+  it('Should require a username.', function(){
+    //test if a screen name is parsed
+    //call the TweetService with no name
+    // set up some data for the http call to return and test later.
+    var returnData = [{text: '', username: '', mentions:[]}];
+    // expectGET to make sure this is called once.
+    httpBackend.expectGET('/api/tweets?name=').respond(returnData);
+    // make the call...
+    // var testOne = TweetService.get('eel3701');
+    var returnedPromise = TweetService.get('');
+
+    var result;
+    returnedPromise.then(function(response) {
+      result = response;
+    });
+
+    // flush the backend to "execute" the request to do the expectedPOSTassertion.
+    httpBackend.flush();
+    expect(result.data).toEqual(returnData);
+  });
+
+  it('Should pass only n tweets', function(){
 
   });
 
