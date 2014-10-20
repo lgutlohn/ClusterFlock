@@ -34,4 +34,16 @@
 	border-radius: 8px;
 	margin: 23px;
 	float: left;
+	transition: .3s;
+}
+
+#cluster-block:hover {
+	width: 160px;
+	height: 160px;
+	background-color: #bbb;
+	border: 2px solid #888;
+	border-radius: 8px;
+	margin: 23px;
+	float: left;
+	transform: scale(1.1);
 }
