@@ -60,8 +60,20 @@
 			</div>
 	    </div>
 	    <div id="left-container">
+	    		<!-- Add new cluster -->
+	    		<div id="cluster-block" 
+		    		 ng-drop="true" 
+		    		 ng-drop-success="onDropComplete($data,$event)"
+		    		 class="btn">
+		    		 <div class="cluster-frame-helper">
+		    		 	<div class="glyphicon glyphicon-plus" style="display: inline-block;vertical-align: middle;"></div>
+		    		 </div>
+		    	</div>
 		    	<!-- Cluster block -->
-		    	<div ng-repeat="block in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]" id="cluster-block" ng-drop="true" ng-drop-success="onDropComplete($data,$event)"></div>
+		    	<div ng-repeat="block in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]" 
+		    		 id="cluster-block" 
+		    		 ng-drop="true" 
+		    		 ng-drop-success="onDropComplete($data,$event)"></div>
 		</div>
 		<div style="clear: both"></div>
   </div>
