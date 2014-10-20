@@ -29,6 +29,7 @@
 #cluster-block {
 	width: 160px;
 	height: 160px;
+	line-height: 160px;
 	background-color: #bbb;
 	border: 2px solid #888;
 	border-radius: 8px;
@@ -49,8 +50,7 @@
 	transform: scale(1.1);
 }
 
-.cluster-frame-helper {
-	display: inline-block;
-    vertical-align: middle;  /* vertical alignment of the inline element */
-    height: 100%;
+.plus-sign {
+	font-size: 25px;
+	color: #303030;
 }

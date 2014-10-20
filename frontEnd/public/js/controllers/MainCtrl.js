@@ -10,10 +10,5 @@ angular.module('MainCtrl', ['ngDraggable']).controller('MainController', ['$scop
 		        $scope.tweets = dataResponse.data;
 		    });	
 		};
-
-		$scope.sayHello = function() {
-			return "Hello";
-		};
-
 	}
 ]);
