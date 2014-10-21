@@ -1,0 +1,11 @@
+drag object
+	if drop zone exists then
+
+if dragged object is on + box
+	create new cluster
+		pop up form (title, description, image)
+	add cluster to the grid
+else
+	dragged into existing cluster
+		fade out
+		back end retrieve data
