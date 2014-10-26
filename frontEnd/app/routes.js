@@ -1,6 +1,19 @@
 var Twit = require('twit');
+var Cluster = require('./models/cluster');
 
 module.exports = function(app) {
+
+	app.get('/api/saveCluster', function(req, res) {
+		var cluster = new Cluster();
+		cluster.text = req.query.text;
+		cluster.noun = req.query.noun;
+		cluster.save(function(err) {
+			if (err) {
+				res.send(err);
+			}
+			res.json({message: 'Cluster Saved'});
+		});
+	});
 
 	// server routes ===========================================================
 	// handle things like api calls
