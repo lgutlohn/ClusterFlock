@@ -1,6 +1,6 @@
 var id = 0;
-angular.module('MainCtrl', ['ngDraggable']).controller('MainController', ['$scope', 'TweetService',
-	function($scope, TweetService) {
+angular.module('MainCtrl', ['ngDraggable']).controller('MainController', ['$scope', 'TweetService', 'ClusterService',
+	function($scope, TweetService, ClusterService) {
 		/* This holds all of our clusters
 		[] = array
 		{} = each individual object 
@@ -49,6 +49,7 @@ angular.module('MainCtrl', ['ngDraggable']).controller('MainController', ['$scop
         	$scope.cluster = angular.copy($scope.master);
 
         	/* back end stuff goes here */
+        	ClusterService.save({name: clusterName, description: clusterDescription});
         	// make sure clusterbox is saved and always displayed 
     	};
     	

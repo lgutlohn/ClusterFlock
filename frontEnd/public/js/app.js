@@ -1,1 +1,1 @@
-angular.module('sampleApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'TweetService']);
+angular.module('sampleApp', ['ngRoute', 'appRoutes', 'MainCtrl', 'TweetService', 'ClusterService']);

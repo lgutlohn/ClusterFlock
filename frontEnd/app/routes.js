@@ -5,8 +5,10 @@ module.exports = function(app) {
 
 	app.get('/api/saveCluster', function(req, res) {
 		var cluster = new Cluster();
-		cluster.text = req.query.text;
-		cluster.noun = req.query.noun;
+		cluster.name = req.query.name;
+		cluster.description = req.query.description;
+		console.log(req.query.name);
+		console.log(req.query.description);
 		cluster.save(function(err) {
 			if (err) {
 				res.send(err);

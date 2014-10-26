@@ -3,7 +3,7 @@ angular.module('ClusterService', []).factory('ClusterService', ['$http', functio
 	return {
 		
 		save : function(data) {
-			return $http.get('/api/saveCluster?text='+data.name+'&noun='+data.noun);
+			return $http.get('/api/saveCluster?name='+data.name+'&description='+data.description);
 		},
 	}	
 
