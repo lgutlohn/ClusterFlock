@@ -29,6 +29,10 @@ module.exports = function(app) {
 		console.log(req.query);
 		T.get('statuses/user_timeline', { screen_name: req.query.name, count: 10, exclude_replies: true }, function(err, data, response) {
 			var newFormat = [];
+			if (!data) {
+				res.jsonp(newFormat);
+				return;
+			}
 			for (var i = 0; i < data.length; i++) {
 				var tweet = data[i];
 				var text = tweet['text'];
