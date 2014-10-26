@@ -92,13 +92,11 @@
 		    		 	<div class="glyphicon glyphicon-plus" style="display: inline-block;vertical-align: middle;"></div>
 		    		 </div>
 		    	</div>
-		    	<!-- Cluster block 
-		    	<div ng-repeat="block in clusters" 
+		    	<div ng-repeat="cluster in clusters" 
 		    		 class="cluster-block" 
 		    		 ng-drop="true" 
-		    		 ng-drop-success="onDropComplete($data,$event)"></div>-->
-
-		    	<div id="addedClusters">
+		    		 ng-drop-success="onDropComplete($data,$event)">
+		    		 <h3>{{cluster.name}}</h3>
 		    	</div>
 		</div>
 		<div style="clear: both"></div>

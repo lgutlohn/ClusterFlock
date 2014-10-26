@@ -7,6 +7,18 @@ angular.module('MainCtrl', ['ngDraggable']).controller('MainController', ['$scop
 		*/
 		$scope.clusters = [];
 
+		$scope.init = function() {
+			ClusterService.getClusters().then(function(clusters) {
+				clusters = clusters.data;
+				var cluster;
+				for (var key in clusters) {
+					cluster = clusters[key];
+					$scope.clusters.push({name: cluster.name, description: "", id: cluster._id});
+				};
+			});
+		}
+
+		$scope.init();
 
 		$scope.onDropComplete = function(data,evt){
 	       evt.element.fadeOut();
@@ -35,11 +47,6 @@ angular.module('MainCtrl', ['ngDraggable']).controller('MainController', ['$scop
         	var clusterName = $scope.cluster.name;
         	var clusterDescription = $scope.cluster.description;
         	
-        	// append each cluster into the cluster array
-        	$scope.clusters.push({name: clusterName, description: clusterDescription});
-        	// creates a new customized cluster for existing tweet
-        	createNewCustomizedClusterBox(clusterName);
-        	
         	/* Increase Index*/
         	++id;
 
@@ -48,16 +55,17 @@ angular.module('MainCtrl', ['ngDraggable']).controller('MainController', ['$scop
 	    	$scope.master = {};
         	$scope.cluster = angular.copy($scope.master);
 
-        	/* back end stuff goes here */
-        	ClusterService.save({name: clusterName, description: clusterDescription});
-        	// make sure clusterbox is saved and always displayed 
+        	/* Save to backend */
+        	ClusterService.save({name: clusterName, description: clusterDescription}).then(function(cluster) {
+        		cluster = cluster.data;
+        		if (cluster.id) {
+        			// append each cluster into the cluster array
+		        	$scope.clusters.push({name: clusterName, description: clusterDescription, id: cluster.id});
+        		} else {
+        			alert ("Something went wrong!");
+        		}
+        	});
     	};
-    	
-    	function createNewCustomizedClusterBox(clusterName)
-    	{
-    		var newBoxElement = angular.element("<div class='cluster-block' id=" + id + "ng-drop='true' ng-drop-success='onDropComplete($data,$event)''><h3>" + clusterName + "</h3></div>");
-			$("#addedClusters").append(newBoxElement);
-		}
 	}
 
 ]);

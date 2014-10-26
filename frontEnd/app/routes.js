@@ -3,17 +3,48 @@ var Cluster = require('./models/cluster');
 
 module.exports = function(app) {
 
+	// Needs to pass in name and description
 	app.get('/api/saveCluster', function(req, res) {
 		var cluster = new Cluster();
 		cluster.name = req.query.name;
 		cluster.description = req.query.description;
-		console.log(req.query.name);
-		console.log(req.query.description);
-		cluster.save(function(err) {
+		cluster.save(function(err, cluster) {
 			if (err) {
 				res.send(err);
+			} else {
+				console.log(cluster._id);
+				res.json({message: 'Cluster Saved', id: cluster._id});
 			}
-			res.json({message: 'Cluster Saved'});
+		});
+	});
+
+	// needs to pass in ID of cluster and noun that we are adding
+	app.get('/api/saveSubCluster', function(req, res) {
+		var newObj = {
+			noun: req.query.noun
+		}
+		var condition = {"_id":req.query.id};
+		var update =  {"$pushAll" : {objects : [newObj]}};
+		Cluster.update(condition, update, function(err) {
+			if (err) {
+				res.send(err);
+			} else {
+				res.json({message: 'Cluster Saved'});
+			}
+		});
+	});
+
+	app.get('/api/getClusters', function(req, res) {
+		Cluster.find({}, function(err, clusters) {
+			if (err) {
+				res.send(err);
+			} else {
+				var clusterMap = {};
+			    clusters.forEach(function(cluster) {
+			      clusterMap[cluster._id] = cluster;
+			    });
+				res.json(clusterMap);
+			}
 		});
 	});
 
