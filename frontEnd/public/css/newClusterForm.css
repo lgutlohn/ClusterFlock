@@ -1,0 +1,23 @@
+/* Pop Up Form 
+*/
+
+#newClusterForm{
+	display:none;
+
+}
+
+form {
+	max-width:300px;
+	min-width:250px;
+	padding:10px 50px;
+	border:2px solid gray;
+	border-radius:10px;
+	background-color:#fff
+}
+
+div#popupContact {
+	position:absolute;
+	left:50%;
+	top:17%;
+	margin-left:-202px;
+}
