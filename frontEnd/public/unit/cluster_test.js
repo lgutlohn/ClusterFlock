@@ -4,13 +4,16 @@
 describe('Clusters', function(){
 
 	var ClusterService,
+		MainController,
 		httpBackend;
 	
 	beforeEach(function() {
     module('ClusterService');
+    module('MainController');
 
-    inject(function($httpBackend, _ClusterService_) {
+    inject(function($httpBackend, _ClusterService_, _MainController_) {
       ClusterService = _ClusterService_;
+      MainController = _MainController_;
       httpBackend = $httpBackend;
     });
   });
@@ -24,6 +27,9 @@ describe('Clusters', function(){
 	});
 
 	it('Should be able to create a cluster', function(){
+		ClusterService.save({name: 'fsdfd', description: "sdsa"}}).then(function(result) {
+			expect(result.data.message).toEqual("Cluster Saved");
+		});
 
 	});
 
@@ -40,15 +46,15 @@ describe('Clusters', function(){
 	});
 
 	it('Should require a cluster name', function(){
-		var dummy = ClusterService.save('name','descriptionTest');
-		var name = ClusterService.getClusterName(dummy);
-		expect(name).toEqual('name');
+		ClusterService.save({name: '', description: "my description"}}).then(function(result) {
+			expect(result.data.message).not.to.equal("Validation failed");
+		});
 	});
 
 	it('Should have a description', function(){
-		var dummy = ClusterService.save('name','descriptionTest');
-		var description = ClusterService.getDescription(dummy);
-		expect(description).toEqual('descriptionTest');
+		ClusterService.save({name: 'fsdfd', description: ""}}).then(function(result) {
+			expect(result.data.message).not.to.equal("Validation failed");
+		});
 
 	});
 

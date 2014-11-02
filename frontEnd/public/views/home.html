@@ -19,7 +19,7 @@
 <div id="sidebar">
 	<input type="text" ng-model="name" ng-blur="updateTweets()" class="form-control" placeholder="Twitter Username" />
 	<br />
-	<div ng-repeat="tweet in tweets" class="well text-center tweet-container" ng-drag="true" ng-drag-data="obj">
+	<div ng-repeat="tweet in tweets" class="well text-center tweet-container" ng-drag="true" ng-drag-data="tweet">
 		{{tweet.username}} : {{tweet.text}}
 	</div>
 </div>

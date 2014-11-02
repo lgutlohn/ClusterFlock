@@ -8,6 +8,8 @@ module.exports = function(app) {
 		var cluster = new Cluster();
 		cluster.name = req.query.name;
 		cluster.description = req.query.description;
+		cluster.tweet = req.query.tweet;
+		cluster.author = req.query.author;
 		cluster.save(function(err, cluster) {
 			if (err) {
 				res.send(err);
