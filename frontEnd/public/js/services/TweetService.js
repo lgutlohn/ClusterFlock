@@ -1,4 +1,4 @@
-angular.module('TweetService', []).factory('TweetService', ['$http', function($http) {
+appModule.factory('TweetService', ['$http', function($http) {
 
 	return {
 		

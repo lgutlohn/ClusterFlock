@@ -1,4 +1,4 @@
-angular.module('ClusterService', []).factory('ClusterService', ['$http', function($http) {
+appModule.factory('ClusterService', ['$http', function($http) {
 
 	return {
 		

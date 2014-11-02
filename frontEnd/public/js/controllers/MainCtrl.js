@@ -1,6 +1,6 @@
 var id = 0;
-angular.module('MainCtrl', ['ngDraggable']).controller('MainController', ['$scope', 'TweetService', 'ClusterService',
-	function($scope, TweetService, ClusterService) {
+appModule.controller('MainController', ['$scope', 'TweetService', 'ClusterService', '$location', '$rootScope',
+	function($scope, TweetService, ClusterService, $location, $rootScope) {
 		/* This holds all of our clusters
 		[] = array
 		{} = each individual object 
@@ -8,6 +8,7 @@ angular.module('MainCtrl', ['ngDraggable']).controller('MainController', ['$scop
 		$scope.clusters = [];
 
 		$scope.init = function() {
+			$scope.page = "page";
 			ClusterService.getClusters().then(function(clusters) {
 				clusters = clusters.data;
 				var cluster;
@@ -66,6 +67,14 @@ angular.module('MainCtrl', ['ngDraggable']).controller('MainController', ['$scop
         		}
         	});
     	};
+
+    	$scope.clusterClick = function(cluster) {
+    		$rootScope.cluster = {
+    			name: cluster.name,
+    			description: cluster.description
+    		}
+    		$location.path("/sub");
+    	}
 	}
 
 ]);

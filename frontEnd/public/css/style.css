@@ -1,3 +1,71 @@
+.page.ng-enter {
+	-webkit-animation: slideInRight .8s ease-out; /* Chrome, Safari, Opera */ 
+    animation: slideInRight .8s ease-out;
+}
+
+.page.ng-leave {
+	-webkit-animation: stayStill .8s ease-in; /* Chrome, Safari, Opera */ 
+    animation: stayStill .8s ease-in;
+}
+
+@-webkit-keyframes stayStill {
+	from 	{
+		-webkit-transform: translateX(0%);
+	}
+	to 		{ 
+		-webkit-transform: translateX(0%);
+	}
+}
+
+@keyframes stayStill {
+	from 	{
+		transform: translateX(0%);
+	}
+	to 		{ 
+		transform: translateX(0%);
+	}
+}
+
+@-webkit-keyframes slideOutLeft {
+	from 	{
+		-webkit-transform: translateX(0%);
+	}
+	to 		{ 
+		-webkit-transform: translateX(-100%);
+	}
+}
+
+@keyframes slideOutLeft {
+	from 	{
+		transform: translateX(0%); 
+	}
+	to 		{ 
+		transform: translateX(-100%); 
+	}
+}
+
+@-webkit-keyframes slideInRight {
+	from 	{
+		-webkit-transform: translateX(100%);
+	}
+	to 		{ 
+		-webkit-transform: translateX(0%);
+	}
+}
+
+@keyframes slideInRight {
+	from 	{
+		transform: translateX(100%); 
+	}
+	to 		{ 
+		transform: translateX(0%); 
+	}
+}
+
+body {
+	background-color: #aaa;
+}
+
 #sidebar {
 	width: 250px;
 	height: 100%;
@@ -7,24 +75,24 @@
 	border-left: 1px solid #eee;
 }
 
-
 .tweet-container {
 	width: 210px;
 }
 
 #left-container {
-	background-color: #aaa;
 	padding: 10px;
 	height: 100%;
 	overflow-y: auto;
 }
 
 #body-container {
+	background-color: #aaa;
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	top: 51px;
 	left: 0;
+	border-left: 2px solid black;
 }
 
 .cluster-block {

@@ -1,3 +1,44 @@
-<div ng-repeat="tweet in tweets" class="well text-center">
-	{{tweet}}
+<!-- NEW CLUSTER FORM -->
+<div class="modal" ng-app="" id="newClusterForm">
+	<div id="popupContact">
+	  <form id="myForm">
+	    Cluster Name:<br>
+	    <input type="text" ng-model="cluster.name"><br>
+	    Description:<br>
+	    <input type="text" ng-model="cluster.description"><br>
+	    FIXTHIS Placeholder Image:<br>
+	    <input type="text" ng-model="cluster.image"><br>
+	    <button ng-click="save()">SAVE</button>
+	  </form>
+	 </div>
 </div>
+
+<!-- END OF NEW CLUSTER FORM -->
+
+<!-- SIDE BAR OF TWEETS -->
+<div id="sidebar">
+	<input type="text" ng-model="name" ng-blur="updateTweets()" class="form-control" placeholder="Twitter Username" />
+	<br />
+	<div ng-repeat="tweet in tweets" class="well text-center tweet-container" ng-drag="true" ng-drag-data="obj">
+		{{tweet.username}} : {{tweet.text}}
+	</div>
+</div>
+<div id="left-container">
+		<!-- Add new cluster + -->
+		<div class="cluster-block" 
+    		 ng-drop="true" 
+    		 class="btn"
+    		 ng-drop-success="newCluster($data,$event)">
+    		 <div class="cluster-frame-helper">
+    		 	<div class="glyphicon glyphicon-plus plus-sign"></div>
+    		 </div>
+    	</div>
+    	<div ng-repeat="cluster in clusters" 
+    		 class="cluster-block" 
+    		 ng-click="clusterClick(cluster)"
+    		 ng-drop="true" 
+    		 ng-drop-success="onDropComplete($data,$event)">
+    		 <h3>{{cluster.name}}</h3>
+    	</div>
+</div>
+<div style="clear: both"></div>
