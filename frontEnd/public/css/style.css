@@ -31,6 +31,7 @@
 	word-wrap:break-word;
 	width: 200px;
 	height: 200px;
+	line-height: 200px;
 	background-color: #bbb;
 	border: 2px solid #888;
 	border-radius: 8px;
@@ -56,3 +57,8 @@
     vertical-align: middle;  /* vertical alignment of the inline element */
     height: 100%;
 }
+
+.plus-sign {
+	font-size: 23px;
+	color: #505050;
+ }
