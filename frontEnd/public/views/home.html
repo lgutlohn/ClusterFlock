@@ -1,17 +1,24 @@
-<!-- NEW CLUSTER FORM -->
-<div class="modal" ng-app="" id="newClusterForm">
-	<div id="popupContact">
-	  <form id="myForm">
-	    Cluster Name:<br>
+<div class="modal fade" id="newClusterForm">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title">New Cluster</h4>
+      </div>
+      <div class="modal-body">
+        Cluster Name:<br>
 	    <input type="text" ng-model="cluster.name"><br>
 	    Description:<br>
-	    <input type="text" ng-model="cluster.description"><br>
-	    FIXTHIS Placeholder Image:<br>
-	    <input type="text" ng-model="cluster.image"><br>
-	    <button ng-click="save()">SAVE</button>
-	  </form>
-	 </div>
-</div>
+	    <input type="text" ng-model="cluster.description">
+	    <!-- FIXTHIS Placeholder Image:<br>
+	    <input type="text" ng-model="cluster.image"><br> -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="saveNewCluster()">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <!-- END OF NEW CLUSTER FORM -->
 
@@ -37,7 +44,7 @@
     		 class="cluster-block" 
     		 ng-click="clusterClick(cluster)"
     		 ng-drop="true" 
-    		 ng-drop-success="onDropComplete($data,$event)">
+    		 ng-drop-success="newSubCluster($data,$event,cluster)">
     		 <h3>{{cluster.name}}</h3>
     	</div>
 </div>

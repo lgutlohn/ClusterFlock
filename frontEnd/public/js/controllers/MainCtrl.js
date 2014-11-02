@@ -20,13 +20,13 @@ appModule.controller('MainController', ['$scope', 'TweetService', 'ClusterServic
 				var cluster;
 				for (var key in clusters) {
 					cluster = clusters[key];
-					debugger
 					$scope.clusters.push({
 						name: cluster.name, 
 						description: cluster.description, 
 						id: cluster._id,
 						tweet: cluster.tweet,
-						author: cluster.author
+						author: cluster.author,
+						subClusters: cluster.subClusters
 					});
 				};
 			});
@@ -34,8 +34,18 @@ appModule.controller('MainController', ['$scope', 'TweetService', 'ClusterServic
 
 		$scope.init();
 
-		$scope.onDropComplete = function(data,evt){
+		$scope.newSubCluster = function(data,evt,cluster){
 	    	evt.element.fadeOut();
+	    	ClusterService.saveSubCluster({noun: cluster.name, tweet: data.text, author: data.username, id: cluster.id})
+        	.then(function(res) {
+        		debugger
+        		res = res.data;
+        		if (res.message == "Sub Cluster Saved") {
+        			cluster.subClusters.push({noun: cluster.name, tweet: data.text, author: data.username});
+        		} else {
+        			alert ("Something went wrong!");
+        		}
+        	});
 	    };
 
 		$scope.updateTweets = function() {
@@ -54,7 +64,7 @@ appModule.controller('MainController', ['$scope', 'TweetService', 'ClusterServic
 	    };
 
 	    /* User clicks save and creates a new cluster */
-	    $scope.save = function() {
+	    $scope.saveNewCluster = function() {
 
 	    	// Hide the form
 	    	$('#newClusterForm').modal('hide');	
@@ -64,7 +74,6 @@ appModule.controller('MainController', ['$scope', 'TweetService', 'ClusterServic
         	var clusterDescription = $scope.cluster.description;
         	var clusterTweet = $scope.cluster.tweet;
         	var clusterAuthor = $scope.cluster.author;
-        	debugger
         	/* Increase Index*/
         	++id;
 
@@ -76,7 +85,6 @@ appModule.controller('MainController', ['$scope', 'TweetService', 'ClusterServic
         	/* Save to backend */
         	ClusterService.save({name: clusterName, description: clusterDescription, tweet: clusterTweet, author: clusterAuthor})
         	.then(function(cluster) {
-        		debugger
         		cluster = cluster.data;
         		if (cluster.id) {
         			// append each cluster into the cluster array
@@ -88,12 +96,12 @@ appModule.controller('MainController', ['$scope', 'TweetService', 'ClusterServic
     	};
 
     	$scope.clusterClick = function(cluster) {
-    		debugger
     		$rootScope.cluster = {
     			name: cluster.name,
     			description: cluster.description,
     			tweet: cluster.tweet,
-    			author: cluster.author
+    			author: cluster.author,
+    			subClusters: cluster.subClusters
     		}
     		$location.path("/sub");
     	}

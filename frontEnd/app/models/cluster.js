@@ -6,8 +6,10 @@ var ClusterSchema   = new Schema({
 	description: { type: String, required: true },
 	tweet: {type: String, required: true},
 	author: {type: String, required: true},
-	objects: [{
-		noun: String
+	subClusters: [{
+		noun: { type: String, required: true },
+		tweet: { type: String, required: true },
+		author: { type: String, required: true }
 	}]
 });
 

@@ -23,15 +23,17 @@ module.exports = function(app) {
 	// needs to pass in ID of cluster and noun that we are adding
 	app.get('/api/saveSubCluster', function(req, res) {
 		var newObj = {
-			noun: req.query.noun
+			noun: req.query.noun,
+			tweet: req.query.tweet,
+			author: req.query.author
 		}
 		var condition = {"_id":req.query.id};
-		var update =  {"$pushAll" : {objects : [newObj]}};
-		Cluster.update(condition, update, function(err) {
+		var update =  {"$pushAll" : {subClusters : [newObj]}};
+		Cluster.update(condition, update, function(err, subCluster) {
 			if (err) {
 				res.send(err);
 			} else {
-				res.json({message: 'Cluster Saved'});
+				res.json({message: 'Sub Cluster Saved'});
 			}
 		});
 	});

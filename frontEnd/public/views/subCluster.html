@@ -4,12 +4,11 @@
       <h2 style="margin-left: 35px"> {{name}} </h2>
       <div style="margin-left: 35px;"> 
         <b>Description:</b> {{description}} <br />
-        <b>Tweet:</b> {{tweet}}<br />
         <b>Stored:</b> 5/10/2015
       </div>
     </div>
     <div style="float:right">
-      <a href="/" style="font-size: large; font-weight:bold">Back</a>
+      <a href="/main" style="font-size: large; font-weight:bold">Back</a>
     </div>
     <div style="clear:both"></div>
     <hr />
@@ -17,65 +16,17 @@
       <thead>
         <tr>
           <th>#</th>
-          <th>Column heading</th>
-          <th>Column heading</th>
-          <th>Column heading</th>
+          <th>Noun</th>
+          <th>Tweet</th>
+          <th>Author</th>
         </tr>
       </thead>
-      <tbody>
-        <tr class="active">
-          <td>1</td>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr class="success">
-          <td>3</td>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr class="info">
-          <td>5</td>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr class="warning">
-          <td>7</td>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
-        </tr>
-        <tr class="danger">
-          <td>9</td>
-          <td>Column content</td>
-          <td>Column content</td>
-          <td>Column content</td>
+      <tbody ng-repeat="subCluster in subClusters">
+        <tr ng-class="{active : $index%2==0}">
+          <td>{{$index+1}}</td>
+          <td>{{subCluster.noun}}</td>
+          <td>{{subCluster.tweet}}</td>
+          <td>{{subCluster.author}}</td>
         </tr>
       </tbody>
     </table>

@@ -5,7 +5,7 @@ appModule.controller('SubClusterCtrl', ['$scope', '$rootScope',
 			$scope.page = "page";
 			$scope.name = $rootScope.cluster.name;
 			$scope.description = $rootScope.cluster.description;
-			$scope.tweet = $rootScope.cluster.tweet;
+			$scope.subClusters = $rootScope.cluster.subClusters;
 		}
 
 		$scope.init();
