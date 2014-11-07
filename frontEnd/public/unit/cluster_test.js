@@ -59,8 +59,9 @@ describe('Clusters', function(){
 	});
 
 	it('Form has refreshed/reset', function(){
-		var dummy = ClusterService.save('blah');
-		expect(dummy).toBeDefined();
+		var dummy = ClusterService.save({name: 'blah', description: ""}).then(function(result){
+			expect(result).toBeDefined();
+		});
 	});
 
 
