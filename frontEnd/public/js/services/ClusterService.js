@@ -1,3 +1,7 @@
+var appModule = angular.module('ClusterService',['../appRoutes.js']);
+//to define appModule within the Service test
+//currently does not work
+
 appModule.factory('ClusterService', ['$http', function($http) {
 
 	return {
