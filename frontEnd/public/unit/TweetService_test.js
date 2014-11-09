@@ -2,10 +2,12 @@
 
 describe('TweetService', function(){
   var TweetService,
+      appModule,
       httpBackend;
 
   // Make sure the tweet service and backend is included
   beforeEach(function() {
+    module('clusterApp');
     module('TweetService');
 
     inject(function($httpBackend, _TweetService_) {

@@ -64,7 +64,7 @@ module.exports = function(app) {
 		  access_token_secret:  'DwY4XtSlRRW42e7yGKxm8frLyHbrZUYHQTFioZX1kGt3b',
 		});
 		console.log(req.query);
-		T.get('statuses/user_timeline', { screen_name: req.query.name, count: 10, exclude_replies: true }, function(err, data, response) {
+		T.get('statuses/user_timeline', { screen_name: req.query.name, count: 2, exclude_replies: true }, function(err, data, response) {
 			var newFormat = [];
 			if (!data) {
 				res.jsonp(newFormat);

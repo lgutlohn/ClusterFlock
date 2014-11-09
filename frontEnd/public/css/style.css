@@ -74,10 +74,12 @@ body {
 	padding: 20px;
 	background-color: #f5f5f5;
 	border-left: 1px solid #eee;
+	overflow: scroll;
 }
 
 .tweet-container {
-	width: 210px;
+	width: 200px;
+	overflow:hidden;
 }
 
 #left-container {

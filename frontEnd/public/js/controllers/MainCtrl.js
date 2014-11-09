@@ -1,6 +1,6 @@
 var id = 0;
-appModule.controller('MainController', ['$scope', 'TweetService', 'ClusterService', '$location', '$rootScope',
-	function($scope, TweetService, ClusterService, $location, $rootScope) {
+appModule.controller('MainController', ['$scope', 'TweetService', 'ClusterService', '$location', '$rootScope', '$sce', '$compile',
+	function($scope, TweetService, ClusterService, $location, $rootScope, $sce, $compile) {
 		/* This holds all of our clusters
 		[] = array
 		{} = each individual object 
@@ -35,13 +35,16 @@ appModule.controller('MainController', ['$scope', 'TweetService', 'ClusterServic
 		$scope.init();
 
 		$scope.newSubCluster = function(data,evt,cluster){
+			debugger
 	    	evt.element.fadeOut();
-	    	ClusterService.saveSubCluster({noun: cluster.name, tweet: data.text, author: data.username, id: cluster.id})
+	    	var noun = data[0];
+	    	var tweet = data[1];
+	    	ClusterService.saveSubCluster({noun: noun, tweet: tweet.text, author: tweet.username, id: cluster.id})
         	.then(function(res) {
         		debugger
         		res = res.data;
         		if (res.message == "Sub Cluster Saved") {
-        			cluster.subClusters.push({noun: cluster.name, tweet: data.text, author: data.username});
+        			cluster.subClusters.push({noun: noun, tweet: tweet.text, author: tweet.username});
         		} else {
         			alert ("Something went wrong!");
         		}
@@ -51,6 +54,11 @@ appModule.controller('MainController', ['$scope', 'TweetService', 'ClusterServic
 		$scope.updateTweets = function() {
 			TweetService.get($scope.name).then(function(dataResponse) {
 		        $scope.tweets = dataResponse.data;
+		        for (var tweetKey in $scope.tweets) {
+		        	var tweet = $scope.tweets[tweetKey];
+		        	$scope.nlpTweet(tweet);
+		        }
+		        //$scope.$apply();
 		    });	
 		};
 
@@ -104,7 +112,31 @@ appModule.controller('MainController', ['$scope', 'TweetService', 'ClusterServic
     			subClusters: cluster.subClusters
     		}
     		$location.path("/sub");
-    	}
+    	};
+
+        $scope.nlpTweet = function(tweet)
+        {
+        	var newTweetNPL="";
+            var parsedText = nlp.pos(tweet.text);
+            for(var i = 0; i < parsedText[0].tokens.length; i++)
+            {
+                if(parsedText[0].tokens[i].text != null){
+               
+                        if(parsedText[0].tokens[i].pos.parent.match("noun"))
+                        {
+                            var strippedNoun = parsedText[0].tokens[i].text.trim();
+                            newTweetNPL += " <div class='btn btn-default btn-sm' ng-drag='true' ng-drag-data='tweet'>" + strippedNoun + "</div> ";
+                        }
+                        else
+                        {
+                            newTweetNPL += "<span style='background-color:none'> " + parsedText[0].tokens[i].text + "</span>";
+                        }
+               
+        		}
+           
+             }
+	         tweet.parsedText = newTweetNPL;
+        }
 	}
 
 ]);
