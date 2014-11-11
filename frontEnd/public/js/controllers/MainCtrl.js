@@ -34,11 +34,9 @@ appModule.controller('MainController', ['$scope', 'TweetService', 'ClusterServic
 
 		$scope.init();
 
-		$scope.newSubCluster = function(data,evt,cluster){
-			debugger
+		$scope.newSubCluster = function(tweet,evt,cluster){
 	    	evt.element.fadeOut();
-	    	var noun = data[0];
-	    	var tweet = data[1];
+	    	var noun = evt.element[0].getAttribute("data-noun");
 	    	ClusterService.saveSubCluster({noun: noun, tweet: tweet.text, author: tweet.username, id: cluster.id})
         	.then(function(res) {
         		debugger
@@ -125,7 +123,7 @@ appModule.controller('MainController', ['$scope', 'TweetService', 'ClusterServic
                         if(parsedText[0].tokens[i].pos.parent.match("noun"))
                         {
                             var strippedNoun = parsedText[0].tokens[i].text.trim();
-                            newTweetNPL += " <div class='btn btn-default btn-sm' ng-drag='true' ng-drag-data='tweet'>" + strippedNoun + "</div> ";
+                            newTweetNPL += " <div class='btn btn-default btn-sm' data-noun='"+strippedNoun+"' ng-drag='true' ng-drag-data='tweet'>" + strippedNoun + "</div> ";
                         }
                         else
                         {
