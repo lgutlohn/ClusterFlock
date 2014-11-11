@@ -25,6 +25,7 @@ describe('angularjs hello-portractor', function() {
 	   	});
 
 		it('should have a sidebar of tweets', function() {
+		    browser.get('http://localhost:8080/main');
 		    var sidebar = element(by.className('form-control'));
 		    sidebar.clear();
 	   	});
