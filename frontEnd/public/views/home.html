@@ -7,14 +7,14 @@
       </div>
       <div class="modal-body">
         Cluster Name:<br>
-	    <input type="text" ng-model="cluster.name"><br>
+	    <input type="text" id="clusterName" ng-model="cluster.name"><br>
 	    Description:<br>
-	    <input type="text" ng-model="cluster.description">
+	    <input type="text" id="description" ng-model="cluster.description">
 	    <!-- FIXTHIS Placeholder Image:<br>
 	    <input type="text" ng-model="cluster.image"><br> -->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" ng-click="saveNewCluster()">Save changes</button>
+        <button type="button" id="mySave" class="btn btn-primary" ng-click="saveNewCluster()">Save changes</button>
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
@@ -33,10 +33,10 @@
 </div>
 <div id="left-container">
 		<!-- Add new cluster + -->
-		<div class="cluster-block" 
+		<div class="cluster-block btn" 
     		 ng-drop="true" 
-    		 class="btn"
-    		 ng-drop-success="newCluster($data,$event)">
+    		 ng-drop-success="newCluster($data,$event)"
+         ng-click="newCluster('','')">
     		 <div class="cluster-frame-helper">
     		 	<div class="glyphicon glyphicon-plus plus-sign"></div>
     		 </div>
@@ -46,7 +46,13 @@
     		 ng-click="clusterClick(cluster)"
     		 ng-drop="true" 
     		 ng-drop-success="newSubCluster($data,$event,cluster)">
+
     		 <h3>{{cluster.name}}</h3>
+         <span ng-click="remove(cluster)"class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+
     	</div>
+
+
+
 </div>
 <div style="clear: both"></div>

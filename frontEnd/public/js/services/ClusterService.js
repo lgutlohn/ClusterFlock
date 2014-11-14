@@ -1,4 +1,4 @@
-var appModule = angular.module('ClusterService',['../appRoutes.js']);
+//var appModule = angular.module('ClusterService',['../appRoutes.js']);
 //to define appModule within the Service test
 //currently does not work
 
