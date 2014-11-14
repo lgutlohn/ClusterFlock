@@ -1,19 +1,19 @@
-'use strict'
+// 'use strict'
 
-describe('SEproject home view', function() {
+// describe('SEproject home view', function() {
 
-  beforeEach(module('frontEnd.js.controllers.MainCtrl'));
+//   beforeEach(module('frontEnd.js.controllers.MainCtrl'));
 
-  describe('index controller', function(){
+//   describe('index controller', function(){
 
-    it('should ...', inject(function($controller) {
-      //spec body
-      var indexCtrl = $controller('MainController');
-      expect(indexCtrl).toBeDefined();
-    }));
+//     it('should ...', inject(function($controller) {
+//       //spec body
+//       var indexCtrl = $controller('MainController');
+//       expect(indexCtrl).toBeDefined();
+//     }));
 
-  });
-});
+//   });
+// });
 
 /*
 describe('myApp.view1 module', function() {

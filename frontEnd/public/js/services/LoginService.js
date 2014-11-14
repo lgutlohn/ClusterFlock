@@ -1,6 +1,6 @@
 'use strict';
  
-appModule.factory('AuthenticationService',
+angular.module('clusterApp').factory('AuthenticationService',
     ['Base64', '$http', '$cookieStore', '$rootScope', '$timeout',
     function (Base64, $http, $cookieStore, $rootScope, $timeout) {
         var service = {};

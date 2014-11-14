@@ -1,20 +1,13 @@
 var id = 0;
-appModule.controller('MainController', ['$scope', 'TweetService', 'ClusterService', '$location', '$rootScope', '$sce', '$compile',
-	function($scope, TweetService, ClusterService, $location, $rootScope, $sce, $compile) {
+angular.module('clusterApp').controller('MainController', ['$scope', 'TweetService', 'ClusterService', '$location', '$rootScope',
+	function($scope, TweetService, ClusterService, $location, $rootScope) {
 		/* This holds all of our clusters
 		[] = array
 		{} = each individual object 
 		*/
 		$scope.clusters = [];
 
-		$scope.init = function() {
-			$scope.page = "page";
-			$scope.cluster = {
-				name: '',
-				description: '',
-				tweet: '',
-				author: ''
-			};
+		$scope.getClusters = function() {
 			ClusterService.getClusters().then(function(clusters) {
 				clusters = clusters.data;
 				var cluster;
@@ -30,6 +23,17 @@ appModule.controller('MainController', ['$scope', 'TweetService', 'ClusterServic
 					});
 				};
 			});
+		}
+		
+		$scope.init = function() {
+			$scope.page = "page";
+			$scope.cluster = {
+				name: '',
+				description: '',
+				tweet: '',
+				author: ''
+			};
+			$scope.getClusters();
 		}
 
 		$scope.init();
