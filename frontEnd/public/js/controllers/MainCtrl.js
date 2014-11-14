@@ -38,6 +38,13 @@ angular.module('clusterApp').controller('MainController', ['$scope', 'TweetServi
 
 		$scope.init();
 
+		/* Delete Cluster */
+
+    	$scope.remove = function ( cluster ) {
+		  
+		  $scope.clusters.splice( $scope.clusters.indexOf(cluster), 1 );
+		};
+
 		$scope.newSubCluster = function(tweet,evt,cluster){
 	    	evt.element.fadeOut();
 	    	var noun = evt.element[0].getAttribute("data-noun");
@@ -104,6 +111,9 @@ angular.module('clusterApp').controller('MainController', ['$scope', 'TweetServi
         		}
         	});
     	};
+
+
+    	
 
     	$scope.clusterClick = function(cluster) {
     		$rootScope.cluster = {

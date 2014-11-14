@@ -1,7 +1,8 @@
-describe('angularjs hello-portractor', function() {
+describe('angularjs hello-protractor', function() {
 	//var ptor = protractor.getInstance();
-
+	 ptor = protractor.getInstance();
 	describe("index", function() {
+		var $scope;
 		
 		/*it("should display the correct title", function(){
 			ptor.get('/#');
@@ -19,32 +20,54 @@ describe('angularjs hello-portractor', function() {
 		   
 		    emailAddress.clear();
 		    expect(password.getText()).toEqual('');
+		    
+		    // ptor.sleep(3000);
 		   
 		    emailAddress.sendKeys('smith1302');
 		    expect(password.getText()).toEqual('');
+		    // ptor.sleep(3000);
 	   	});
 
-		it('should have a sidebar of tweets', function() {
-		    browser.get('http://localhost:8080/main');
+		it('should show specific tweets for each username', function() {
+			// ptor.sleep(3000);
+		   	
+		   	var leftContainer = element(by.className('navbar-header'));
+			browser.get('http://localhost:8080/main');
 		    var sidebar = element(by.className('form-control'));
+		    sidebar.sendKeys('ericsmith');
+		    leftContainer.click();
+		    // ptor.sleep(1000);
 		    sidebar.clear();
+		    sidebar.sendKeys('lgutlohn');
+		    leftContainer.click();
+		    // ptor.sleep(1000);
+		    sidebar.clear();
+		    sidebar.sendKeys('lebron');
+		    leftContainer.click();
+		    // ptor.sleep(1000);
+		    sidebar.clear();
+		    
 	   	});
 
-	   	it('Should be able to display.', function(){
-
-		});
-
-		it('Should find applicable pictures.', function(){
-
-		});
-
-		it('Should be able to create a cluster', function(){
-			//var cluster = element(by.className('cluster-block'));
-		    //cluster.clear();
+		it('Should access pop up Form', function(){
+			var plusBox = element(by.className('cluster-block'));
+			ptor.sleep(1000);
+			
 		});
 
 		it('Should be able to add to a cluster', function(){
+			var plusBox = element(by.className('cluster-block'));
+			var clusterName = element(by.id('clusterName'));
+			var description = element(by.id('description'));
+			var save = element(by.id('mySave'));
+			
+			plusBox.click();
+			clusterName.sendKeys('Test Cluster');
+			description.sendKeys('Test Description');
 
+			ptor.sleep(1000);
+			save.click();
+			ptor.sleep(1000);
 		});
 
 		it('Should be able to take away from a cluster', function(){
