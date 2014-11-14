@@ -24,7 +24,12 @@ describe('angularjs hello-portractor', function() {
 		    expect(password.getText()).toEqual('');
 	   	});
 
+		it('should sign in', function() {
+
+	   	});
+
 		it('should have a sidebar of tweets', function() {
+			browser.get('http://localhost:8080/main');
 		    var sidebar = element(by.className('form-control'));
 		    sidebar.clear();
 	   	});
@@ -55,11 +60,13 @@ describe('angularjs hello-portractor', function() {
 		});
 
 		it('Should require a cluster name', function(){
-
+			var clusterName = element(by.model('cluster.name')).sendKeys();
+		    clusterName.clear();
 		});
 
 		it('Should have a description', function(){
-
+			var clusterDescription = element(by.model('cluster.description'));
+		    clusterDescription.clear();
 		});
 
 		it('Form has refreshed/reset', function(){
