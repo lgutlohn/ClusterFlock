@@ -49,11 +49,7 @@ describe('angularjs hello-protractor', function() {
 		    
 	   	});
 
-		it('Should access pop up Form', function(){
-			var plusBox = element(by.className('cluster-block'));
-			ptor.sleep(1000);
-			
-		});
+
 
 		it('Should be able to add to a cluster', function(){
 			var plusBox = element(by.className('cluster-block'));
@@ -65,20 +61,47 @@ describe('angularjs hello-protractor', function() {
 			clusterName.sendKeys('Test Cluster');
 			description.sendKeys('Test Description');
 
-			ptor.sleep(1000);
+			// ptor.sleep(1000);
 			save.click();
+			// ptor.sleep(1000);
+		});
+
+
+		it('Should access pop up Form', function(){
+			var plusBox = element(by.className('cluster-block'));
+			plusBox.click();
 			ptor.sleep(1000);
 		});
 
-		it('Should be able to take away from a cluster', function(){
-
+		it('Should be able to cancel out of form', function(){
+			var clickOut = element(by.className('close'));
+			clickOut.click();
+			ptor.sleep(1000);
+		});
+		
+		it('Should be able to delete a cluster', function(){
+			var deleteButton = element(by.className('glyphicon-remove'));
+			deleteButton.click();
+			ptor.sleep(1000);
 		});
 
-		it('Should be able to be sealed', function(){
-
+		it('Should be able to click inside Test Cluster', function(){
+			var testCluster = element(by.tagName('h3'));
+			testCluster.click();
+			ptor.sleep(1000);
 		});
 
-		it('Should require a cluster name', function(){
+		it('Should be able to click Back outside Test CLuster', function(){
+			var backButton = element(by.tagName('button'));
+		});
+
+		it('Go back to main', function(){
+			ptor.sleep(1000);
+			browser.get('http://localhost:8080/main');
+			ptor.sleep(1000);
+		});
+
+		it('Should be able to cancel out of form', function(){
 
 		});
 
@@ -99,7 +122,9 @@ describe('angularjs hello-protractor', function() {
 		});
 
 		it('Should be able to log out of a session', function(){
-
+		
+			browser.get('http://localhost:8080/');
+			ptor.sleep(1000);
 		});
 
 		it('Admin should be able to ban a user', function(){
