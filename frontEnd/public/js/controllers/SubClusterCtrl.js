@@ -1,4 +1,4 @@
-appModule.controller('SubClusterCtrl', ['$scope', '$rootScope',
+angular.module('clusterApp').controller('SubClusterCtrl', ['$scope', '$rootScope',
 	function($scope, $rootScope) {
 
 		$scope.init = function() {

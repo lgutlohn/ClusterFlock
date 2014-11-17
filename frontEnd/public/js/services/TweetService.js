@@ -1,4 +1,4 @@
-appModule.factory('TweetService', ['$http', function($http) {
+angular.module('clusterApp').factory('TweetService', ['$http', function($http) {
 
 	return {
 		

@@ -1,8 +1,8 @@
-//var appModule = angular.module('ClusterService',['../appRoutes.js']);
-//to define appModule within the Service test
+//var angular.module('clusterApp', ['ngRoute','ngAnimate','ngDraggable']) = angular.module('ClusterService',['../appRoutes.js']);
+//to define angular.module('clusterApp', ['ngRoute','ngAnimate','ngDraggable']) within the Service test
 //currently does not work
 
-appModule.factory('ClusterService', ['$http', function($http) {
+angular.module('clusterApp').factory('ClusterService', ['$http', function($http) {
 
 	return {
 		
