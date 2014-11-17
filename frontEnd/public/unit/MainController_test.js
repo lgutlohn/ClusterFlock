@@ -46,18 +46,19 @@ describe('Controller: MainController', function () {
 		expect(scope.nlpTweet).toBeDefined();
 	});
 
+	it('Should have setTempCluster()', function() {
+		expect(scope.setTempCluster).toBeDefined();
+	});
+
 	it('Should create an empty cluster holder', function() {
 		scope.init();
 		expect(scope.cluster).toBeDefined();
 	});
 
-	/* Figure out how to ignore jquery call */
-	it('newCluster() should store data in cluster holder', function() {
-	
-		// scope.newCluster({text:"text", username:"name"}, "<div></div>");
-		// expect()
-		// expect(scope.cluster.tweet).toEqual("text");
-		// expect(scope.cluster.author).toEqual("name");
+	it('setTempCluster() should store data in cluster holder', function() {
+		scope.setTempCluster({text:"text", username:"name"});
+		expect(scope.cluster.tweet).toEqual("text");
+		expect(scope.cluster.author).toEqual("name");
 	});
  
 });

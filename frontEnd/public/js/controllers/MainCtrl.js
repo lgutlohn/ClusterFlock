@@ -67,22 +67,24 @@ angular.module('clusterApp').controller('MainController', ['$scope', 'TweetServi
 		        	var tweet = $scope.tweets[tweetKey];
 		        	$scope.nlpTweet(tweet);
 		        }
-		        //$scope.$apply();
 		    });	
 		};
 
 		/* User drags a cluster onto New Cluster box
 		 * Tweet fades out, Form pops up */
 		$scope.newCluster = function(data,evt){
-			$scope.cluster.tweet = data.text;
-			$scope.cluster.author = data.username;
+			$scope.setTempCluster();
 	    	$('#newClusterForm').modal('toggle');
 	    	evt.element.fadeOut();
 	    };
 
+	    $scope.setTempCluster = function(data) {
+	    	$scope.cluster.tweet = data.text;
+			$scope.cluster.author = data.username;
+	    }
+
 	    /* User clicks save and creates a new cluster */
 	    $scope.saveNewCluster = function() {
-
 	    	// Hide the form
 	    	$('#newClusterForm').modal('hide');	
         	
