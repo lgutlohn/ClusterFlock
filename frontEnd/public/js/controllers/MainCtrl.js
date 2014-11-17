@@ -45,6 +45,11 @@ angular.module('clusterApp').controller('MainController', ['$scope', 'TweetServi
 		  $scope.clusters.splice( $scope.clusters.indexOf(cluster), 1 );
 		};
 
+		$scope.removeTweet = function ( tweet ) {
+		  
+		  $scope.tweets.splice( $scope.tweets.indexOf(tweet), 1 );
+		};
+
 		$scope.newSubCluster = function(tweet,evt,cluster){
 	    	evt.element.fadeOut();
 	    	var noun = evt.element[0].getAttribute("data-noun");

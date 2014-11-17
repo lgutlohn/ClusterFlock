@@ -29,6 +29,8 @@
 	<div ng-repeat="tweet in tweets" class="well text-center tweet-container">
 		<div compile="tweet.parsedText"></div>
     <!-- {{tweet.username}} : {{tweet.text}} -->
+    <!-- X BUTTON FOR REMOVING THE WHOLE TWEET -->
+    <span ng-click="removeTweet(tweet)"class="glyphicon glyphicon-remove" aria-hidden="true"></span>
 	</div>
 </div>
 <div id="left-container">
