@@ -16,6 +16,10 @@ angular.module('clusterApp').factory('ClusterService', ['$http', function($http)
 
 		getClusters : function() {
 			return $http.get('/api/getClusters');
+		},
+
+		deleteCluster : function(data) {
+			return $http.get('/api/deleteCluster?id='+data.id);
 		}
 	}	
 

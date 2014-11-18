@@ -3,6 +3,17 @@ var Cluster = require('./models/cluster');
 
 module.exports = function(app) {
 
+	app.get('/api/deleteCluster', function(req, res) {
+		var condition = {"_id":req.query.id};
+		Cluster.remove(condition, function(err, cluster) {
+			if (err) {
+				res.send(err);
+			} else {
+				res.json({message: 'Cluster deleted'});
+			}
+		});
+	});
+
 	// Needs to pass in name and description
 	app.get('/api/saveCluster', function(req, res) {
 		var cluster = new Cluster();

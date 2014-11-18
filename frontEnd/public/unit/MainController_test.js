@@ -1,12 +1,13 @@
 describe('Controller: MainController', function () {
-	var scope, MainController;
+	var scope, MainController, rootScope;
 
 	// load the controller's module
 	beforeEach(module('clusterApp'));
 
 	// Initialize the controller and a mock scope
-	beforeEach(inject(function($controller, $rootScope, _TweetService_, _ClusterService_, $location) {
+	beforeEach(inject(function($location, $controller, $rootScope, _TweetService_, _ClusterService_, $location) {
 		scope = $rootScope.$new();
+		rootScope = $rootScope;
 		MainController = $controller('MainController', {$scope: scope, TweetService: _TweetService_, ClusterService: _ClusterService_});
 	}));
 
@@ -50,15 +51,54 @@ describe('Controller: MainController', function () {
 		expect(scope.setTempCluster).toBeDefined();
 	});
 
+	it('Should have a method to delete clusters', function() {
+		expect(scope.remove).toBeDefined();
+	});
+
 	it('Should create an empty cluster holder', function() {
 		scope.init();
 		expect(scope.cluster).toBeDefined();
+	});
+
+	it('Should delete clusters from cluster object', function() {
+		scope.clusters = [1,2,3,4,5];
+		scope.remove(3);
+		expect(scope.clusters).toEqual([1,2,4,5]);
 	});
 
 	it('setTempCluster() should store data in cluster holder', function() {
 		scope.setTempCluster({text:"text", username:"name"});
 		expect(scope.cluster.tweet).toEqual("text");
 		expect(scope.cluster.author).toEqual("name");
+	});
+
+	it('nlpTweet() should create a parsedText variable', function() {
+		var tweet = {
+			text: "my name is Eric"
+		};
+		scope.nlpTweet(tweet);
+		expect(tweet.parsedText).toBeDefined();
+	});
+
+	it('clusterClick() should save cluster transition', function() {
+		var cluster = {
+			name: "name",
+			description: "description",
+			tweet: "tweet",
+			author: "author",
+			subClusters: "subClusters"
+		};
+		scope.clusterClick(cluster);
+		expect(rootScope.cluster).toEqual({
+			name: "name",
+			description: "description",
+			tweet: "tweet",
+			author: "author",
+			subClusters: "subClusters"
+		});
+	});
+
+	it('ClusterClick should go to the subcluster page', function() {
 	});
  
 });

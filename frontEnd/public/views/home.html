@@ -42,13 +42,13 @@
     		 </div>
     	</div>
     	<div ng-repeat="cluster in clusters" 
-    		 class="cluster-block" 
+    		 class="cluster-block btn" 
     		 ng-click="clusterClick(cluster)"
     		 ng-drop="true" 
     		 ng-drop-success="newSubCluster($data,$event,cluster)">
 
     		 <h3>{{cluster.name}}</h3>
-         <span ng-click="remove(cluster)"class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+         <span ng-click="remove(cluster)"class="glyphicon glyphicon-remove delete-icon" aria-hidden="true"></span>
 
     	</div>
 

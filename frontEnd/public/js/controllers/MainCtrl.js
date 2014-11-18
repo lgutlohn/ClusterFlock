@@ -39,10 +39,14 @@ angular.module('clusterApp').controller('MainController', ['$scope', 'TweetServi
 		$scope.init();
 
 		/* Delete Cluster */
-
     	$scope.remove = function ( cluster ) {
-		  
-		  $scope.clusters.splice( $scope.clusters.indexOf(cluster), 1 );
+		  $scope.clusters.splice($scope.clusters.indexOf(cluster), 1);
+		  ClusterService.deleteCluster({id: cluster.id}).then(function(res) {
+		  	res = res.data;
+		  	if (res.message != "Cluster deleted") {
+		  		alert("Something went wrong");
+		  	}
+		  });
 		};
 
 		$scope.newSubCluster = function(tweet,evt,cluster){
@@ -50,15 +54,24 @@ angular.module('clusterApp').controller('MainController', ['$scope', 'TweetServi
 	    	var noun = evt.element[0].getAttribute("data-noun");
 	    	ClusterService.saveSubCluster({noun: noun, tweet: tweet.text, author: tweet.username, id: cluster.id})
         	.then(function(res) {
-        		debugger
         		res = res.data;
         		if (res.message == "Sub Cluster Saved") {
+        			tweet.nounCount--;
+        			$scope.checkEmptyTweet(tweet);
         			cluster.subClusters.push({noun: noun, tweet: tweet.text, author: tweet.username});
         		} else {
         			alert ("Something went wrong!");
         		}
         	});
 	    };
+
+	    /* Considered empty when all nouns have been dragged out */
+	    $scope.checkEmptyTweet = function(tweet) {
+	    	debugger
+	    	if (tweet.nounCount <= 0) {
+	    		alert("ugh");
+	    	}
+	    }
 
 		$scope.updateTweets = function() {
 			TweetService.get($scope.name).then(function(dataResponse) {
@@ -73,7 +86,7 @@ angular.module('clusterApp').controller('MainController', ['$scope', 'TweetServi
 		/* User drags a cluster onto New Cluster box
 		 * Tweet fades out, Form pops up */
 		$scope.newCluster = function(data,evt){
-			$scope.setTempCluster();
+			$scope.setTempCluster(data);
 	    	$('#newClusterForm').modal('toggle');
 	    	evt.element.fadeOut();
 	    };
@@ -132,6 +145,7 @@ angular.module('clusterApp').controller('MainController', ['$scope', 'TweetServi
         {
         	var newTweetNPL="";
             var parsedText = nlp.pos(tweet.text);
+            tweet.nounCount = 0;
             for(var i = 0; i < parsedText[0].tokens.length; i++)
             {
                 if(parsedText[0].tokens[i].text != null){
@@ -140,10 +154,11 @@ angular.module('clusterApp').controller('MainController', ['$scope', 'TweetServi
                         {
                             var strippedNoun = parsedText[0].tokens[i].text.trim();
                             newTweetNPL += " <div class='btn btn-default btn-sm' data-noun='"+strippedNoun+"' ng-drag='true' ng-drag-data='tweet'>" + strippedNoun + "</div> ";
+                        	tweet.nounCount++;
                         }
                         else
                         {
-                            newTweetNPL += "<span style='background-color:none'> " + parsedText[0].tokens[i].text + "</span>";
+                            newTweetNPL += parsedText[0].tokens[i].text;
                         }
                
         		}
