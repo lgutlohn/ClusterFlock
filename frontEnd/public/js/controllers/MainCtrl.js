@@ -116,10 +116,11 @@ angular.module('clusterApp').controller('MainController', ['$scope', 'TweetServi
         	// default for resetting form
 	    	$scope.master = {};
         	$scope.cluster = angular.copy($scope.master);
-
+        	debugger
         	/* Save to backend */
         	ClusterService.save({name: clusterName, description: clusterDescription, tweet: clusterTweet, author: clusterAuthor})
         	.then(function(cluster) {
+        		debugger
         		cluster = cluster.data;
         		if (cluster.id) {
         			// append each cluster into the cluster array

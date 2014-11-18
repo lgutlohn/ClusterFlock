@@ -4,6 +4,7 @@ angular.module('clusterApp').controller('SubClusterCtrl', ['$scope', '$rootScope
 		$scope.nouns = {};
 		$scope.orderedNouns = [];
 		$scope.quantifySubClusters = function(objects) {
+			if (!objects) return;
 			for (var i = 0; i < objects.length; i++) {
 				var object = objects[i];
 				if (!$scope.nouns[object.noun]) {
@@ -15,6 +16,7 @@ angular.module('clusterApp').controller('SubClusterCtrl', ['$scope', '$rootScope
 		}
 
 		$scope.percentizeNouns = function() {
+			if (!$scope.subClusters) return;
 			var total = $scope.subClusters.length;
 			for (var noun in $scope.nouns) {
 				var count = $scope.nouns[noun];
