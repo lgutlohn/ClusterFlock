@@ -27,15 +27,14 @@
 	<input type="text" ng-model="name" ng-blur="updateTweets()" class="form-control" placeholder="Twitter Username" />
 	<br />
 	<div ng-repeat="tweet in tweets" class="well text-center tweet-container">
-		<div compile="tweet.parsedText"></div>
-    <!-- {{tweet.username}} : {{tweet.text}} -->
     <!-- X BUTTON FOR REMOVING THE WHOLE TWEET -->
-    <span ng-click="removeTweet(tweet)"class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+    <span ng-click="removeTweet(tweet)"class="glyphicon glyphicon-remove remove-tweet" aria-hidden="true"></span>
+    <div compile="tweet.parsedText"></div>
 	</div>
 </div>
 <div id="left-container">
 		<!-- Add new cluster + -->
-		<div class="cluster-block btn" 
+		<div class="cluster-block btn new-btn" 
     		 ng-drop="true" 
     		 ng-drop-success="newCluster($data,$event)"
          ng-click="newCluster('','')">
@@ -48,10 +47,8 @@
     		 ng-click="clusterClick(cluster)"
     		 ng-drop="true" 
     		 ng-drop-success="newSubCluster($data,$event,cluster)">
-
+         <span ng-click="remove(cluster)" class="glyphicon glyphicon-remove delete-icon"></span>
     		 <h3>{{cluster.name}}</h3>
-         <span ng-click="remove(cluster)"class="glyphicon glyphicon-remove delete-icon" aria-hidden="true"></span>
-
     	</div>
 
 

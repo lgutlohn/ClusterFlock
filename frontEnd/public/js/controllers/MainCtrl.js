@@ -50,7 +50,6 @@ angular.module('clusterApp').controller('MainController', ['$scope', 'TweetServi
 		};
 
 		$scope.removeTweet = function ( tweet ) {
-		  
 		  $scope.tweets.splice( $scope.tweets.indexOf(tweet), 1 );
 		};
 
@@ -72,9 +71,8 @@ angular.module('clusterApp').controller('MainController', ['$scope', 'TweetServi
 
 	    /* Considered empty when all nouns have been dragged out */
 	    $scope.checkEmptyTweet = function(tweet) {
-	    	debugger
 	    	if (tweet.nounCount <= 0) {
-	    		alert("ugh");
+	    		$scope.removeTweet(tweet);
 	    	}
 	    }
 

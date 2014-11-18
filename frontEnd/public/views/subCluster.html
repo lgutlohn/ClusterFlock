@@ -12,6 +12,17 @@
     </div>
     <div style="clear:both"></div>
     <hr />
+    <div id="headerChart">Breakdown by count</div>
+    <div id="myChart">
+      <div id="left-of-chart">
+        <div ng-repeat = "(noun, count) in nouns">{{noun}}</div>
+      </div>
+      <div id="inner-chart-container">
+        <div ng-repeat = "noun in orderedNouns" style="width:{{noun.percent}}%"><span class="percent">{{noun.percent}}%</span></div>
+      </div>
+      <div style="clear:both"></div>
+    </div>
+
     <table class="table" style="background-color: white; margin-top:10px;">
       <thead>
         <tr>
