@@ -1,6 +1,8 @@
 angular.module('clusterApp').controller('SubClusterCtrl', ['$scope', '$rootScope',
 	function($scope, $rootScope) {
 
+		$scope.myvar = 5;
+
 		$scope.nouns = {};
 		$scope.orderedNouns = [];
 		$scope.quantifySubClusters = function(objects) {

@@ -63,7 +63,7 @@
 }
 
 body {
-	background-color: #aaa;
+	background-color: rgb(157, 191, 195);
 	overflow: hidden;
 }
 
@@ -87,7 +87,7 @@ body {
 	padding: 10px;
 	height: 100%;
 	overflow-y: auto;
-	background-color: #bbb;
+	background-color: rgb(157, 191, 195);
 }
 
 #left-container h3  {
@@ -95,7 +95,7 @@ body {
 }
 
 #body-container {
-	background-color: #aaa;
+	background-color: rgb(145, 160, 163);
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -253,6 +253,7 @@ body {
   	float:left;
   	width: 10%;
   	overflow: hidden;
+    background-color: rgb(249, 249, 249);
   }
 
   #inner-chart-container > div {
@@ -269,10 +270,10 @@ body {
   #left-of-chart div {
   	margin: 5px;
   	position: relative;
-	font-weight: bold;
+	  font-weight: bold;
   	height: 35px;
   	line-height: 35px;
-
+    border-bottom: 1px solid rgb(227, 227, 227);
   }
 
   .percent {
@@ -281,7 +282,7 @@ body {
   }
 
   #headerChart {
-  	  height: 40px;
+  	height: 40px;
 	  line-height: 40px;
 	  padding-left: 20px;
 	  width: 100%;
@@ -289,4 +290,10 @@ body {
 	  border-bottom: 1px solid lightgrey;
 	  font-weight: bold;
 	  color: #404040;
+  }
+
+  #subCluster-header {
+    padding: 20px;
+    background-color: #ddd;
+    border-radius: 8px;
   }
