@@ -11,7 +11,7 @@ angular.module('clusterApp').config(['$routeProvider', '$locationProvider', func
 			templateUrl: '../views/subCluster.html',
 			controller: 'SubClusterCtrl'
 		})
-		.when('/', {
+		.when('/site.html', {
 			templateUrl: '../views/login.html',
 			controller: 'LoginController'
 		});
