@@ -110,7 +110,7 @@ describe('angularjs hello-protractor', function() {
 		});
 
 		it('Form has refreshed/reset', function(){
-
+			/* Expect the field of name to be "" */
 		});
 
 		it('Should be able to create an account', function(){
@@ -138,6 +138,10 @@ describe('angularjs hello-protractor', function() {
 		it('As and admin should be able to see logged actions of users', function(){
 
 		});
+
+		/* ABOUT PAGE */
+
+		/* User manual page */
 
 
 	});

@@ -1,50 +1,24 @@
 @twitter: #1ab7ea;
-
+.logo {
+    margin: -260px 130px;
+    position:absolute;
+}
 .twitter-bird-animation {
   background-image: url("http://www.cloud.elalemanyo.de/tmp/twitter-bird-sprite-e0FhFKaXRI.png");
-	background-size: cover;
-	display: block;
-  position: relative;
-	height: 75px;
+  background-size: cover;
+  display: block;
+  position: absolute;
+  height: 75px;
   width: 75px;
   margin: 50px auto 0 auto;
   animation: 0.3s fly step-end infinite;
+  -webkit-animation: 0.3s fly step-end infinite;
+  -webkit-animation-delay:0s;
+   -moz-animation-delay:0s;
+     -o-animation-delay:0s;
+        animation-delay:0s;
 }
 
-.loading {
-  margin: auto;
-	width: 100px;
-  .clearfix;
-}
-
-.text {
-  float: left;
-  color: @twitter;
-  font-weight: bold;
-}
-
-.blob {
-	border-radius: 50%;
-	background-color: @twitter;
-	display: block;
-	float: left;
-	margin: 5px 2px;
-	position: relative;
-  top: 6px;
-	height: 3px;
-	width: 3px;
-  animation: loading-blob 1.2s infinite;
-  animation-timing-function: ease-in-out;
-  transform: translate3d(0, 0, 0);
-}
-
-.blob2 {
-	animation-delay: 150ms;
-}
-
-.blob3 {
-	animation-delay: 300ms;
-}
 
 @keyframes fly {
   0%  { background-position: 0 0;}
@@ -52,15 +26,114 @@
   66% { background-position: -450px 0;}
 }
 
+@-webkit-keyframes fly {
+  0%  { background-position: 0 0;}
+  33% { background-position: -250 0;}
+  66% { background-position: -450px 0;}
+}
+
+
 @keyframes loading-blob {
-	0% { height: 3px; width: 3px;}
-	25% { height: 7px; width: 7px;}
-	50% { height: 5px; width: 5px; }
-	100% { height: 3px; width: 3px; }
+  0% { height: 3px; width: 3px;}
+  25% { height: 7px; width: 7px;}
+  50% { height: 5px; width: 5px; }
+  100% { height: 3px; width: 3px; }
 }
 
 .clearfix() {
   zoom: 1;
   &:before { content: ''; display: block; }
   &:after { content: ''; display: table; clear: both;}
+}
+
+/* Main Logo - Reference http://codepen.io/altras/pen/Hwixy */
+.logo_container {
+    position:relative;
+    left: 37.5%;
+    margin-top:150px;
+    /* -moz-animation:spinoffPulse 5s infinite linear;
+    -webkit-animation:spinoffPulse 5s infinite linear;
+    
+      -moz-animation:pulse 3s infinite ease-in-out;
+    -webkit-animation:pulse 3s infinite ease-in-out;*/
+}
+
+.circle1 {
+    position:absolute;
+    -webkit-transform-origin: 167px 167px;
+    -moz-animation:counterClockwiseSpin 15s infinite ease-in;
+    -webkit-animation:counterClockwiseSpin 5s infinite ease-in;
+}
+.circle2 {
+    position:absolute;
+    -webkit-transform-origin: 167px 167px;
+    -moz-animation:clockwiseSpin 5s infinite ease-out;
+    -webkit-animation:clockwiseSpin 8s infinite ease-out;
+}
+.circle3 {
+    position:absolute;
+    -webkit-transform-origin: 167px 167px;
+     -moz-animation:clockwiseSpin 12s infinite ease-in-out;
+    -webkit-animation:clockwiseSpin 12s infinite ease-in-out;
+}
+.circle4 {
+    position:absolute;
+    -moz-transform-origin: 167px 167px;
+    -webkit-transform-origin: 167px 167px;
+    -moz-animation:clockwiseSpin 12s infinite ease;
+    -webkit-animation:clockwiseSpin 12s infinite ease;
+}
+.circle5 {
+    position:relative;
+    -moz-transform-origin: 167px 167px;
+    -webkit-transform-origin: 167px 167px;
+    -moz-animation:clockwiseSpin 8s infinite;
+    -webkit-animation:clockwiseSpin 8s infinite;
+}
+
+.x_ring {
+    position:relative;
+    margin: -288px 0px 0px -55px;
+}
+.y_ring {
+    position:relative;
+    margin: -333px 0px 0px 33px;
+}
+.white_particles {
+    position:absolute;
+    margin: -350px 0px 0px -35px;
+    -moz-animation:pulse 8s infinite ease-in-out;
+    -webkit-animation:pulse 8s infinite ease-in-out;
+}
+.orange_particles {
+    position:absolute;
+    margin: -332px 0px 0px 42px;
+    -moz-animation:pulse 6s infinite ease-in-out;
+    -webkit-animation:pulse 6s infinite ease-in-out;
+}
+@-webkit-keyframes pulse {
+    0% {-webkit-transform:scale(1, 1);}
+    50% {-webkit-transform:scale(1.1, 1.1)}
+    100% {-webkit-transform:scale(1, 1);}
+}
+@-moz-keyframes pulse {
+    0% {-moz-transform:scale(1, 1);}
+    50% {-moz-transform:scale(1.1, 1.1);}
+    100% {-moz-transform:scale(1, 1);}
+}
+@-moz-keyframes clockwiseSpin {
+    0% {-moz-transform:rotate(0deg);}
+    100% {-moz-transform:rotate(360deg);}
+}
+@-webkit-keyframes clockwiseSpin {
+    0% {-webkit-transform:rotate(0deg);}
+    100% {-webkit-transform:rotate(360deg);}
+}
+@-moz-keyframes counterClockwiseSpin {
+    0% {-moz-transform:rotate(0deg);}
+    100% {-moz-transform:rotate(-360deg);}
+}
+@-webkit-keyframes counterClockwiseSpin {
+    0% {-webkit-transform:rotate(0deg);}
+    100% {-webkit-transform:rotate(-360deg);}
 }
