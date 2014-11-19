@@ -274,6 +274,7 @@ body {
   	height: 35px;
   	line-height: 35px;
     border-bottom: 1px solid rgb(227, 227, 227);
+    overflow: hidden;
   }
 
   .percent {
