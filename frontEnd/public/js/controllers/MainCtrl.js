@@ -56,8 +56,10 @@ angular.module('clusterApp').controller('MainController', ['$scope', 'TweetServi
 		$scope.newSubCluster = function(tweet,evt,cluster){
 	    	evt.element.fadeOut();
 	    	var noun = evt.element[0].getAttribute("data-noun");
+	    	debugger
 	    	ClusterService.saveSubCluster({noun: noun, tweet: tweet.text, author: tweet.username, id: cluster.id})
         	.then(function(res) {
+        		debugger
         		res = res.data;
         		if (res.message == "Sub Cluster Saved") {
         			tweet.nounCount--;
