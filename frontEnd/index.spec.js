@@ -9,9 +9,17 @@ describe('angularjs hello-protractor', function() {
 			expect(ptor.getTitle()).toBe('Data Cluster');
 		});*/
 		
+		
+
+
 		it('should have a title', function() {
-    		browser.get('http://localhost:8080/');
+    		browser.get('http://localhost:8080/login');
     		expect(browser.getTitle()).toEqual('Starter Node and Angular');
+		});
+
+		it('should go to sign in', function() {
+    		browser.get('http://localhost:8080/login');
+    	
 		});
 
 		it('should find an element by text input model', function() {
@@ -21,30 +29,30 @@ describe('angularjs hello-protractor', function() {
 		    emailAddress.clear();
 		    expect(password.getText()).toEqual('');
 		    
-		    // ptor.sleep(3000);
+		    //ptor.sleep(3000);
 		   
 		    emailAddress.sendKeys('smith1302');
 		    expect(password.getText()).toEqual('');
-		    // ptor.sleep(3000);
+		    ptor.sleep(1000);
 	   	});
 
 		it('should show specific tweets for each username', function() {
-			// ptor.sleep(3000);
+			ptor.sleep(3000);
 		   	
 		   	var leftContainer = element(by.className('navbar-header'));
 			browser.get('http://localhost:8080/main');
 		    var sidebar = element(by.className('form-control'));
 		    sidebar.sendKeys('ericsmith');
 		    leftContainer.click();
-		    // ptor.sleep(1000);
+		    ptor.sleep(1000);
 		    sidebar.clear();
 		    sidebar.sendKeys('lgutlohn');
 		    leftContainer.click();
-		    // ptor.sleep(1000);
+		    ptor.sleep(1000);
 		    sidebar.clear();
 		    sidebar.sendKeys('lebron');
 		    leftContainer.click();
-		    // ptor.sleep(1000);
+		    ptor.sleep(1000);
 		    sidebar.clear();
 		    
 	   	});
@@ -61,9 +69,9 @@ describe('angularjs hello-protractor', function() {
 			clusterName.sendKeys('Test Cluster');
 			description.sendKeys('Test Description');
 
-			// ptor.sleep(1000);
+			ptor.sleep(1000);
 			save.click();
-			// ptor.sleep(1000);
+			ptor.sleep(1000);
 		});
 
 

@@ -11,9 +11,12 @@ angular.module('clusterApp').config(['$routeProvider', '$locationProvider', func
 			templateUrl: '../views/subCluster.html',
 			controller: 'SubClusterCtrl'
 		})
-		.when('/site.html', {
+		.when('/login', {
 			templateUrl: '../views/login.html',
 			controller: 'LoginController'
+		})
+		.when('/', {
+			templateUrl: '../views/splash.html',
 		});
 		
 	$locationProvider.html5Mode(true);
