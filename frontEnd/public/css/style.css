@@ -1,3 +1,6 @@
+.container, #about_container {
+    overflow:scroll;
+  }
 .page.ng-enter {
 	-webkit-animation: slideInRight .8s ease-out; /* Chrome, Safari, Opera */ 
     animation: slideInRight .8s ease-out;
@@ -64,7 +67,7 @@
 
 body {
 	background-color: rgb(157, 191, 195);
-	overflow: hidden;
+
 }
 
 #sidebar {
@@ -297,3 +300,5 @@ body {
     background-color: #ddd;
     border-radius: 8px;
   }
+
+  

@@ -103,6 +103,24 @@ describe('angularjs hello-protractor', function() {
 			var backButton = element(by.tagName('button'));
 		});
 
+		it('Should be able to click about page', function(){
+			ptor.sleep(3000);
+		   	var leftContainer = element(by.className('navbar-header'));
+			browser.get('http://localhost:8080/about');
+		});
+
+		it('Go back to main', function(){
+			ptor.sleep(1000);
+			browser.get('http://localhost:8080/main');
+			ptor.sleep(1000);
+		});
+
+		it('Should be able to click user manual page', function(){
+			ptor.sleep(3000);
+		   	var leftContainer = element(by.className('navbar-header'));
+			browser.get('http://localhost:8080/userManual');
+		});
+
 		it('Go back to main', function(){
 			ptor.sleep(1000);
 			browser.get('http://localhost:8080/main');

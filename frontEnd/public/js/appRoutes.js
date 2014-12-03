@@ -7,6 +7,15 @@ angular.module('clusterApp').config(['$routeProvider', '$locationProvider', func
 			templateUrl: '../views/home.html',
 			controller: 'MainController'
 		})
+
+		.when('/about', {
+			templateUrl: '../views/about.html',
+		})
+
+		.when('/userManual', {
+			templateUrl: '../views/userManual.html',
+		})
+		
 		.when('/sub', {
 			templateUrl: '../views/subCluster.html',
 			controller: 'SubClusterCtrl'

@@ -1,0 +1,186 @@
+/* Credit 
+http://codepen.io/DeptofJeffAyer/pen/yhwvx
+*/
+
+
+.about {
+  font-family: Lora, serif;
+  line-height: 1.4;
+  font-size: min(12pt);
+
+}
+header, section,
+footer {
+  width: 80vw;
+  margin: 2em auto;
+  min-width: 650px;
+  box-sizing: border-box;
+  padding: 5em 3em;
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.25);
+  min-height: 100vh;
+}
+ .about h1,
+ .about h2,
+ .about h3,
+ .about h4,
+ .about h5,
+ .about h6 {
+  font-family: Lato, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-bottom: 0.8em;
+}
+header h1 {
+  margin-top: 20vh;
+  font-size: 2.25em;
+}
+header h2 {
+  top: 3rem;
+  position: absolute;
+  font-size: 1.25em;
+}
+header h3 {
+  position: absolute;
+  bottom: 3rem;
+}
+header h4.subtitle {
+  font-size: 1.25rem;
+}
+header h4.edition,
+header h3.publisher {
+  font-size: .875rem;
+}
+
+section h1,
+section .part {
+  font-size: min(28.799999999999997pt);
+  margin-bottom: 2em;
+  font-style: italic;
+  clear: right;
+}
+section p {
+  margin-right: 20vw;
+  margin-bottom: 1em;
+}
+section sup::before {
+  counter-increment: footnoteCounter;
+}
+section sup::before,
+section sup > span::before {
+  content: counter(footnoteCounter);
+  vertical-align: super;
+  font-size: min(6pt);
+}
+section sup > span {
+  font-size: min(9.600000000000001pt);
+  display: block;
+  float: right;
+  clear: right;
+  width: 18vw;
+  margin-right: -20vw;
+  margin-bottom: 1em;
+}
+section sup > span:before {
+  margin-right: 1ch;
+}
+section::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+em {
+  font-style: italic;
+}
+
+
+
+
+.circle {
+  width: 158px;
+  height: 158px;
+  margin: 50px auto;
+  text-align: center;
+  background: #51bbb5;
+
+  
+  border-radius: 50%;
+  border: 5px solid #fff;
+}
+
+#graph {
+  position: relative;
+  z-index: 1;
+  width: 125px;
+  height: 90px;
+  margin: 30px auto 0;
+}
+
+#graph div {
+  position: absolute;
+  bottom: 16px;
+  width: 9px;
+  height: 10px;
+  background: #fff;
+}
+
+#graph div:nth-child(n+1) {
+  height:16px;
+  left: 24px;
+  
+  animation: chartIt 2s 1 ease-in-out 0s;
+  -webkit-animation: chartIt 2s 1 ease-in-out 0s;
+}
+
+#graph div:nth-child(n+2) {
+  height:26px;
+  left: 37px;
+  
+  animation: chartIt 2s 1 ease-in-out .25s;
+  -webkit-animation: chartIt 2s ease-in-out .25s;
+}
+
+#graph div:nth-child(n+3) {
+  height:42px;
+  left: 50px;
+  
+  animation: chartIt 2s 1 ease-in-out .5s;
+  -webkit-animation: chartIt 2s ease-in-out .5s;
+}
+
+#graph div:nth-child(n+4) {
+  height:37px;
+  left: 63px;
+  
+  animation: chartIt 2s 1 ease-in-out .75s;
+  -webkit-animation: chartIt 2s ease-in-out .75s;
+}
+
+#graph div:nth-child(n+5) {
+  height:50px;
+  left: 76px;
+  
+  animation: chartIt 2s 1 ease-in-out 1s;
+  -webkit-animation: chartIt 2s ease-in-out 1s;
+}
+
+#graph div:nth-child(n+6) {
+  height:60px;
+  left: 89px;
+  
+  animation: chartIt 2s 1 ease-in-out 1.25s;
+  -webkit-animation: chartIt 2s ease-in-out 1.25s;
+}
+
+@keyframes chartIt {
+  0% { max-height:60px; }
+  50% { max-height:0px; }
+  100% { max-height:60px; }
+}
+
+@-webkit-keyframes chartIt {
+  0% { max-height:60px; }
+  50% { max-height:0px; }
+  100% { max-height:60px; }
+}
