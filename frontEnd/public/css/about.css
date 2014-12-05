@@ -9,6 +9,9 @@ http://codepen.io/DeptofJeffAyer/pen/yhwvx
   font-size: min(12pt);
 
 }
+.page-about {
+  overflow: scroll !important;
+}
 header, section,
 footer {
   width: 80vw;

@@ -10,10 +10,12 @@ angular.module('clusterApp').config(['$routeProvider', '$locationProvider', func
 
 		.when('/about', {
 			templateUrl: '../views/about.html',
+			controller: 'AboutController'
 		})
 
 		.when('/userManual', {
 			templateUrl: '../views/userManual.html',
+			controller: 'AboutController'
 		})
 		
 		.when('/sub', {

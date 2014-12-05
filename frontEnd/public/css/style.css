@@ -257,6 +257,7 @@ body {
   	width: 10%;
   	overflow: hidden;
     background-color: rgb(249, 249, 249);
+    overflow: hidden;
   }
 
   #inner-chart-container > div {
