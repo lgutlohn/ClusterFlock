@@ -23,8 +23,7 @@ describe('Controller: LoginController', function () {
 		expect(scope.page).toBe("page-login");
 	});
 
-	it('Should ', function() {
-
+	it('Default location should be main', function() {
+		expect(location.path).toBe("/main");
 	});
- 
 });

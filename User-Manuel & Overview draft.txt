@@ -1,0 +1,27 @@
+User Manuel:
+
+When launching the application you will be presented with a login page where you log in
+After logging in the main page will appear where on the right side you can enter a twitter username
+click out of the dialouge box and the two most recent tweets from that user will apear below that same box
+The nouns will be highlighted and those can be dragged into the new cluster form (or an already existing cluster if there is one)
+If dragged into a new cluster form you will be prompted with the new name and description of the cluster to be created
+You can then click upon one of the clusters to see all its contents
+	i.e. 	the nouns placed into the cluster along with who tweeted it
+		statistics about how often a particular noun appears
+
+Overview:
+
+This application allows a user (or users) to cluster specific nouns used in tweets
+in regard to certain events
+Say during the state of the union address by Barak Obama people were to live tweet the event
+President Obama may be phrased different ways
+	President Obama
+	The 44th President of the United States of America
+	Barry
+And the user wanted to cluster all of these for analysis
+A username would be entered and the tweets would appear and could then be clustered together
+There could be more than one cluster at a time.
+Say one wanted to complie data from the entire address
+There could be 	a cluster for Vice President Biden
+		a cluster for Speaker Boehner
+		a cluster for random congressman interjecting the speech

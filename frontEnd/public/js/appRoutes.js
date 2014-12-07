@@ -7,13 +7,27 @@ angular.module('clusterApp').config(['$routeProvider', '$locationProvider', func
 			templateUrl: '../views/home.html',
 			controller: 'MainController'
 		})
+
+		.when('/about', {
+			templateUrl: '../views/about.html',
+			controller: 'AboutController'
+		})
+
+		.when('/userManual', {
+			templateUrl: '../views/userManual.html',
+			controller: 'AboutController'
+		})
+		
 		.when('/sub', {
 			templateUrl: '../views/subCluster.html',
 			controller: 'SubClusterCtrl'
 		})
-		.when('/site.html', {
+		.when('/login', {
 			templateUrl: '../views/login.html',
 			controller: 'LoginController'
+		})
+		.when('/', {
+			templateUrl: '../views/splash.html',
 		});
 		
 	$locationProvider.html5Mode(true);

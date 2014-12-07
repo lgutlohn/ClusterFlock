@@ -12,10 +12,10 @@ body {
 }
 .twitter-bird-animation {
   background-image: url("http://www.cloud.elalemanyo.de/tmp/twitter-bird-sprite-e0FhFKaXRI.png");
-	background-size: cover;
-	display: block;
+  background-size: cover;
+  display: block;
   position: absolute;
-	height: 75px;
+  height: 75px;
   width: 75px;
   margin: 50px auto 0 auto;
   animation: 0.3s fly step-end infinite;
@@ -41,10 +41,10 @@ body {
 
 
 @keyframes loading-blob {
-	0% { height: 3px; width: 3px;}
-	25% { height: 7px; width: 7px;}
-	50% { height: 5px; width: 5px; }
-	100% { height: 3px; width: 3px; }
+  0% { height: 3px; width: 3px;}
+  25% { height: 7px; width: 7px;}
+  50% { height: 5px; width: 5px; }
+  100% { height: 3px; width: 3px; }
 }
 
 .clearfix() {

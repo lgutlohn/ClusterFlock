@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<base href="/">
+
+	<title>Starter Node and Angular</title>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
+	<link rel="stylesheet" href="css/newClusterForm.css">
+	<link rel="stylesheet" href="css/splashStyle.css">
+	<link rel="stylesheet" href="css/about.css">
+
+	<!-- JS -->
+	<script src="/libs/jquery/dist/jquery.js"></script>
+	<script src="/libs/bower_components/angular/angular.min.js"></script>
+	<script src="/js/interact.js"></script>
+	<script src="/libs/nlp.js"></script>
+	<script src="/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="/libs/bower_components/angular-animate/angular-animate.js"></script>
+	<script src="/libs/bower_components/ngDraggable/ngDraggable.js"></script>
+	<script src="/libs/bower_components/angular-route/angular-route.js"></script>
+	<!-- ANGULAR CUSTOM -->
+	<script src="js/app.js"></script>
+	<script src="js/appRoutes.js"></script>
+	<script src="js/controllers/LoginCtrl.js"></script>
+	<script src="js/controllers/AboutCtrl.js"></script>
+	<script src="js/controllers/MainCtrl.js"></script>
+	<script src="js/controllers/SubClusterCtrl.js"></script>
+	<script src="js/services/TweetService.js"></script>
+	<script src="js/services/ClusterService.js"></script>
+
+</head>
+<body ng-app="clusterApp">
+	
+	<!-- HEADER -->
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="topBar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Data Cluster</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/about">About</a></li>
+            <li><a href="/userManual">User Manual</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Help</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+	<div id="body-container" class="{{page}}" ng-view></div>
+
+</body>
+</html>
