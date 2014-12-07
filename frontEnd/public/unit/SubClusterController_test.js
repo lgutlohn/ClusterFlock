@@ -29,4 +29,16 @@ describe('Controller: SubClusterController', function () {
 	it('SubClusters should be defined', function(){
 		expect(scope.SubClusters).toBeDefined();
 	});
+	
+	it('Nouns should parse', function(){
+		expect(scope.percentizeNouns).toBeDefined();
+	});
+
+	it('Sub clusters should be quantified', function(){
+		expect(scope.quantifySubClusters).toBeDefined();
+	});
+
+	it('Nouns should only parse one at a time', function(){
+		//expect(scope.nouns[object.noun]).toEqual(1);
+	});
 });
